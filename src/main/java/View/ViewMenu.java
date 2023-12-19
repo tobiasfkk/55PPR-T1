@@ -184,7 +184,6 @@ public class ViewMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnVisualizarTarefaActionPerformed
 
     private void BtnFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnFecharActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_BtnFecharActionPerformed
 
     /**
