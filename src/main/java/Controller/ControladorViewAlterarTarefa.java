@@ -30,6 +30,10 @@ public class ControladorViewAlterarTarefa {
         ViewAlterarTarefa.exibir();
     }
     
+    public void fecharTela(){
+        ViewAlterarTarefa.fechar();
+    }
+    
     public void adicionarAcao(){
         ViewAlterarTarefa.adicionarAcaoBotaoSalvar(new ActionListener() {
             @Override
@@ -83,10 +87,9 @@ public class ControladorViewAlterarTarefa {
     
     public void deletar(){
         Tarefa SelectedItem = (Tarefa) ViewAlterarTarefa.getComboTarefa();
-        repositorioTarefa.remover(SelectedItem);
-        ViewAlterarTarefa.removerItemComboTarefas(SelectedItem);        
+        repositorioTarefa.remover(SelectedItem);    
         ViewAlterarTarefa.exibirMensagem("TAREFA DELETADA COM SUCESSO!");
-        ComboTarefa();
+        fecharTela();
     }
     
     public void carregarComboCategoria(){

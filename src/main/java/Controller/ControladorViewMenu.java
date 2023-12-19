@@ -1,7 +1,12 @@
 package Controller;
 
+import DAO.CategoriaDAO;
+import DAO.TarefaDAO;
+import Model.Categoria;
 import Model.Tarefa;
 import View.ViewMenu;
+import interfaces.CategoriaInterface;
+import interfaces.TarefaInterface;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -28,15 +33,45 @@ public class ControladorViewMenu {
     }
     
     public void cadastrarTarefa(){
-        ControladorViewCriarTarefa controladorViewCriarTarefa = new ControladorViewCriarTarefa();
+        CategoriaInterface repositorioCategoria = new CategoriaDAO();
+        boolean entrou = false;
+        for (Categoria categoria : repositorioCategoria.buscarTodosCategorias()) { 
+            entrou = true;
+            break;
+        }
+        if(entrou == false){
+            viewMenu.exibirMensagem("NECESSÁRIO CADASTRAR PELO MENOS UMA CATEGORIA!");
+        }else{
+            ControladorViewCriarTarefa controladorViewCriarTarefa = new ControladorViewCriarTarefa();
+        }
     }
     
     public void visualiazarCategoria(){
-        ControladorViewAlterarCategoria controladorViewAlterarCategoria = new ControladorViewAlterarCategoria();
+        CategoriaInterface repositorioCategoria = new CategoriaDAO();
+        boolean entrou = false;
+        for (Categoria categoria : repositorioCategoria.buscarTodosCategorias()) {
+            entrou = true;
+            break;
+        }
+        if(entrou == false){
+            viewMenu.exibirMensagem("NECESSÁRIO CADASTRAR PELO MENOS UMA CATEGORIA!");
+        }else{
+            ControladorViewAlterarCategoria controladorViewAlterarCategoria = new ControladorViewAlterarCategoria();
+        } 
     }
     
     public void visualiazarTarefa(){
-       ControladorViewAlterarTarefa controladorViewAlterarTarefa = new ControladorViewAlterarTarefa();
+        TarefaInterface repositorioTarefa = new TarefaDAO();
+        boolean entrou = false;
+        for (Tarefa tarefa : repositorioTarefa.buscarTodasTarefas()) {
+            entrou = true;
+            break;
+        }
+        if(entrou == false){
+            viewMenu.exibirMensagem("NECESSÁRIO CADASTRAR PELO MENOS UMA TAREFA!");
+        }else{
+            ControladorViewAlterarTarefa controladorViewAlterarTarefa = new ControladorViewAlterarTarefa();
+        }
     }
 
     

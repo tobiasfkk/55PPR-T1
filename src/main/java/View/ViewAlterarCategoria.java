@@ -14,6 +14,10 @@ public class ViewAlterarCategoria extends javax.swing.JFrame {
         setVisible(true);
     }
     
+    public void fechar(){
+        setVisible(false);
+    }
+    
     public void adicionarAcaoBotaoSalvar(ActionListener acao){
         BtnSalvarAlteracao.addActionListener(acao);
     }

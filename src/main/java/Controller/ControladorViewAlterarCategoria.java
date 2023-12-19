@@ -16,12 +16,15 @@ public class ControladorViewAlterarCategoria {
         carregarComboCategoria();
         valoresCampoStatus();
         adicionarAcao();
-        ComboCategoria();
         abrirTela();
     }
     
     public void abrirTela(){
         viewAlterarCategoria.exibir();
+    }
+    
+    public void fecharTela(){
+        viewAlterarCategoria.fechar();
     }
     
     public void adicionarAcao(){
@@ -35,18 +38,18 @@ public class ControladorViewAlterarCategoria {
                 }
             }
         });
-        viewAlterarCategoria.adicionarAcaoComboCategoria(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                ComboCategoria();
-            }
-        });
         viewAlterarCategoria.adicionarAcaoBotaoDeletar(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 deletar();
             }
         });
+        viewAlterarCategoria.adicionarAcaoComboCategoria(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ComboCategoria();
+            }
+        });   
     }
     
     public void salvar() throws CampoVazioException{
@@ -58,15 +61,15 @@ public class ControladorViewAlterarCategoria {
             viewAlterarCategoria.limparCampos();
             viewAlterarCategoria.exibirMensagem("CATEGORIA SALVA COM SUCESSO!");
             ComboCategoria();
+            fecharTela();
         }
     }
     
     public void deletar(){
-        Categoria SelectedItem = (Categoria) viewAlterarCategoria.getComboCategoria();
+        Categoria SelectedItem = (Categoria) viewAlterarCategoria.getComboCategoria();        
         repositorioCategoria.remover(SelectedItem);
-        viewAlterarCategoria.removerItemComboCategoria(SelectedItem);        
         viewAlterarCategoria.exibirMensagem("CATEGORIA DELETADA COM SUCESSO!");
-        ComboCategoria();
+        fecharTela();
     }
     
     public void ComboCategoria(){
@@ -74,6 +77,7 @@ public class ControladorViewAlterarCategoria {
         viewAlterarCategoria.setCategoriaNome(SelectedItem.getNomeCategoria());
         viewAlterarCategoria.setCategoriaDescricao(SelectedItem.getDescricaoCategoria());
         viewAlterarCategoria.setCategoriaSituacao(SelectedItem.getStatus());
+        
     }
     
     public void carregarComboCategoria(){

@@ -31,6 +31,10 @@ public class ControladorViewCriarTarefa {
         viewCadastrarTarefa.exibir();
     }
     
+    public void fecharTela(){
+        viewCadastrarTarefa.fechar();
+    }
+    
     public void adicionarAcao(){
         viewCadastrarTarefa.adicionarAcaoBotaoCadastrar(new ActionListener() {
             @Override
@@ -55,6 +59,7 @@ public class ControladorViewCriarTarefa {
             tarefaDAO.gravar(tarefa);
             viewCadastrarTarefa.limparCampos();
             viewCadastrarTarefa.exibirMensagem("TAREFA CADASTRADA COM SUCESSO!");
+            fecharTela();
         }
     }
     

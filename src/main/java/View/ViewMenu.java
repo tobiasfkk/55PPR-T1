@@ -175,60 +175,12 @@ public class ViewMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnCadastrarTarefaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCadastrarTarefaActionPerformed
-        
-//        CategoriaInterface repositorioCategoria = new CategoriaDAO();
-//        
-//        boolean entrou = false;
-//        for (Categoria categoria : repositorioCategoria.buscarTodosCategorias()) {
-//            
-//            entrou = true;
-//            break;
-//        }
-//        if(entrou == false){
-//            JOptionPane.showMessageDialog(null,"Necessário cadastrar pelo menos uma categoria!");
-//        }else{
-//            ViewCriarTarefa viewTarefa = new ViewCriarTarefa();
-//            viewTarefa.setVisible(true);
-//        }  
-        
     }//GEN-LAST:event_BtnCadastrarTarefaActionPerformed
 
     private void BtnVisualizarCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVisualizarCategoriaActionPerformed
-
-//        CategoriaInterface repositorioCategoria = new CategoriaDAO();
-//        
-//        boolean entrou = false;
-//        for (Categoria categoria : repositorioCategoria.buscarTodosCategorias()) {
-//            
-//            entrou = true;
-//            break;
-//        }
-//        if(entrou == false){
-//            JOptionPane.showMessageDialog(null,"Necessário cadastrar pelo menos uma categoria!");
-//        }else{
-//            ViewAlterarCategoria viewAlterarCategoria = new ViewAlterarCategoria();
-//            viewAlterarCategoria.setVisible(true);
-//        }
     }//GEN-LAST:event_BtnVisualizarCategoriaActionPerformed
 
     private void BtnVisualizarTarefaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVisualizarTarefaActionPerformed
-  
-        
-        
-//        TarefaInterface repositorioTarefa = new TarefaDAO();
-//        
-//        boolean entrou = false;
-//        for (Tarefa tarefa : repositorioTarefa.buscarTodasTarefas()) {
-//            
-//            entrou = true;
-//            break;
-//        }
-//        if(entrou == false){
-//            JOptionPane.showMessageDialog(null,"Necessário cadastrar pelo menos uma tarefa!");
-//        }else{
-//            ViewAlterarTarefa viewAlterarTarefa = new ViewAlterarTarefa();
-//            viewAlterarTarefa.setVisible(true); 
-//        } 
     }//GEN-LAST:event_BtnVisualizarTarefaActionPerformed
 
     private void BtnFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnFecharActionPerformed

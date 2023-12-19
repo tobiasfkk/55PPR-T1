@@ -21,6 +21,10 @@ public class ControladorViewCadastrarCategoria {
         viewCadastrarCategoria.exibir();
     }
     
+    public void fecharTela(){
+        viewCadastrarCategoria.fechar();
+    }
+    
     public void adicionarAcao(){
         viewCadastrarCategoria.adicionarAcaoBotaoCadastrar(new ActionListener() {
             @Override
@@ -43,6 +47,7 @@ public class ControladorViewCadastrarCategoria {
             categoriaDAO.gravar(categoria);
             viewCadastrarCategoria.limparCampos();
             viewCadastrarCategoria.exibirMensagem("CATEGORIA CADASTRADA COM SUCESSO!");
+            fecharTela();
         }
     }
     

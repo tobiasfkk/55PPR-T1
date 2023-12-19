@@ -24,6 +24,10 @@ public class ViewCriarTarefa extends javax.swing.JFrame {
         setVisible(true);
     }
     
+    public void fechar(){
+        setVisible(false);
+    }
+    
     public String getTitulo(){
         return txtTitulo.getText();
     }
