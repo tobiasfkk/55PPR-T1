@@ -89,8 +89,9 @@ public class ControladorViewAlterarTarefa extends Observado{
     
     public void deletar(){
         Tarefa SelectedItem = (Tarefa) ViewAlterarTarefa.getComboTarefa();
-        repositorioTarefa.remover(SelectedItem);    
+        repositorioTarefa.remover(SelectedItem);
         ViewAlterarTarefa.exibirMensagem("TAREFA DELETADA COM SUCESSO!");
+        notificarObservadores();
         fecharTela();
     }
     
