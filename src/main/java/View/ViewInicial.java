@@ -42,7 +42,7 @@ public class ViewInicial extends javax.swing.JFrame {
         jlImagem.setPreferredSize(new java.awt.Dimension(300, 400));
         jPanel1.add(jlImagem);
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 370, 420));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 370, 450));
 
         btnIniciar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnIniciar.setText("INICIAR");
@@ -51,7 +51,7 @@ public class ViewInicial extends javax.swing.JFrame {
                 btnIniciarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnIniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 320, 70));
+        getContentPane().add(btnIniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 320, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
