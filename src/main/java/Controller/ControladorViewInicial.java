@@ -22,10 +22,27 @@ public class ControladorViewInicial {
         });
     }
     
-    public void abrirMenu(){
-       fechar();
-       ControladorViewMenu controladorViewMenu = new ControladorViewMenu();
+//    public void abrirMenu(){
+//        fechar();
+//        ControladorViewMenu controladorViewMenu = new ControladorViewMenu();
+//        ControladorViewListaTarefa controladorViewListaTarefa = new ControladorViewListaTarefa();
+//        ControladorViewCriarTarefa controladorViewCriarTarefa = new ControladorViewCriarTarefa();
+//        controladorViewCriarTarefa.adicionarObservador(controladorViewListaTarefa);
+//        controladorViewCriarTarefa.fecharTela();
+//    }
+    
+    public void abrirMenu() {
+        ControladorViewMenu controladorViewMenu = new ControladorViewMenu();
+        ControladorViewListaTarefa controladorViewListaTarefa = new ControladorViewListaTarefa();
+        ControladorViewCriarTarefa controladorViewCriarTarefa = new ControladorViewCriarTarefa();
+
+        // Adiciona o ControladorViewListaTarefa como observador
+        controladorViewCriarTarefa.adicionarObservador(controladorViewListaTarefa);
+
+        // Fecha a tela do ControladorViewCriarTarefa somente após notificar os observadores
+        controladorViewCriarTarefa.fecharTela();
     }
+
     
     public void exibir(){
         viewInicial.abrirTela();
