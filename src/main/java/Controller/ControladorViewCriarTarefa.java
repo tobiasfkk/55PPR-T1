@@ -7,6 +7,7 @@ import Exception.CampoVazioException;
 import Model.Categoria;
 import Model.Status;
 import Model.Tarefa;
+import Observado.Observado;
 import Observador.Observador;
 import View.ViewCriarTarefa;
 import java.awt.event.ActionEvent;
@@ -17,11 +18,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ControladorViewCriarTarefa {
+public class ControladorViewCriarTarefa extends Observado{
     private ViewCriarTarefa viewCadastrarTarefa = new ViewCriarTarefa();
     private CategoriaDAO categoriaDAO = new CategoriaDAO();
-    private ObservadorDAO observadorDAO = new ObservadorDAO();
-    private List<Observador> observadores = new ArrayList<>();
     
     public ControladorViewCriarTarefa() {
         valoresCampoPrioridade();
@@ -29,16 +28,6 @@ public class ControladorViewCriarTarefa {
         valoresCampoStatus();
         adicionarAcao();
         abrirTela();
-    }
-    
-    public void adicionarObservador(Observador observador) {
-        observadorDAO.gravar(observador);
-    }
-    
-    private void notificarObservadores() {
-        for (Observador observador : observadorDAO.buscaTodosObservadores()) {
-            observador.atualizarListaTarefas();
-        }
     }
     
     public void abrirTela(){
