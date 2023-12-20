@@ -2,6 +2,7 @@ package Controller;
 
 import DAO.TarefaDAO;
 import DAO.CategoriaDAO;
+import DAO.ObservadorDAO;
 import Exception.CampoVazioException;
 import Model.Categoria;
 import Model.Status;
@@ -19,6 +20,7 @@ import java.util.Map;
 public class ControladorViewCriarTarefa {
     private ViewCriarTarefa viewCadastrarTarefa = new ViewCriarTarefa();
     private CategoriaDAO categoriaDAO = new CategoriaDAO();
+    private ObservadorDAO observadorDAO = new ObservadorDAO();
     private List<Observador> observadores = new ArrayList<>();
     
     public ControladorViewCriarTarefa() {
@@ -30,11 +32,11 @@ public class ControladorViewCriarTarefa {
     }
     
     public void adicionarObservador(Observador observador) {
-        observadores.add(observador);
+        observadorDAO.gravar(observador);
     }
     
     private void notificarObservadores() {
-        for (Observador observador : observadores) {
+        for (Observador observador : observadorDAO.buscaTodosObservadores()) {
             observador.atualizarListaTarefas();
         }
     }
