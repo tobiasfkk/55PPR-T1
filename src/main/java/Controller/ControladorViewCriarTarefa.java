@@ -6,6 +6,7 @@ import Exception.CampoVazioException;
 import Model.Categoria;
 import Model.Status;
 import Model.Tarefa;
+import Observador.Observador;
 import View.ViewCriarTarefa;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,6 +19,7 @@ import java.util.Map;
 public class ControladorViewCriarTarefa {
     private ViewCriarTarefa viewCadastrarTarefa = new ViewCriarTarefa();
     private CategoriaDAO categoriaDAO = new CategoriaDAO();
+    private List<Observador> observadores = new ArrayList<>();
     
     public ControladorViewCriarTarefa() {
         valoresCampoPrioridade();
@@ -25,6 +27,16 @@ public class ControladorViewCriarTarefa {
         valoresCampoStatus();
         adicionarAcao();
         abrirTela();
+    }
+    
+    public void adicionarObservador(Observador observador) {
+        observadores.add(observador);
+    }
+    
+    private void notificarObservadores() {
+        for (Observador observador : observadores) {
+            observador.atualizarListaTarefas();
+        }
     }
     
     public void abrirTela(){
@@ -57,6 +69,7 @@ public class ControladorViewCriarTarefa {
             tarefa.setAnexo(viewCadastrarTarefa.getAnexo());
             TarefaDAO tarefaDAO = new TarefaDAO();
             tarefaDAO.gravar(tarefa);
+            notificarObservadores();
             viewCadastrarTarefa.limparCampos();
             viewCadastrarTarefa.exibirMensagem("TAREFA CADASTRADA COM SUCESSO!");
             fecharTela();
