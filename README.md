@@ -11,5 +11,6 @@ Padrões a serem implementados:
     Observer - feito
     MVC - feito
     Prototype, Façade, Template Method e Factory Method (necessário pelo menos dois)
+    Factory Method - feito
     Command
     Abstract Factory
