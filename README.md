@@ -12,5 +12,6 @@ Padrões a serem implementados:
     MVC - feito
     Prototype, Façade, Template Method e Factory Method (necessário pelo menos dois)
     Factory Method - feito
+    Template Method - feito
     Command
     Abstract Factory
