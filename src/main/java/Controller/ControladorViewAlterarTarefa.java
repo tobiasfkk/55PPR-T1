@@ -5,13 +5,14 @@ import DAO.TarefaDAO;
 import Exception.CampoVazioException;
 import Model.Categoria;
 import Model.Tarefa;
+import Observado.Observado;
 import View.ViewAlterarTarefa;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ControladorViewAlterarTarefa {
+public class ControladorViewAlterarTarefa extends Observado{
     private ViewAlterarTarefa ViewAlterarTarefa = new ViewAlterarTarefa();
     private TarefaDAO repositorioTarefa = new TarefaDAO();
     private CategoriaDAO repositorioCategoria = new CategoriaDAO();
@@ -79,6 +80,7 @@ public class ControladorViewAlterarTarefa {
             repositorioTarefa.editar(SelectedItem.getNumerotarefa(), ViewAlterarTarefa.getTarefaTitulo(), ViewAlterarTarefa.getTarefaDataConclusao(), ViewAlterarTarefa.getTarefaPrioridade(), ViewAlterarTarefa.getTarefaStatus(), ViewAlterarTarefa.getTarefaDescricao(), ViewAlterarTarefa.getComboCategoria());
             ViewAlterarTarefa.enviarImagem();
             SelectedItem.setAnexo(ViewAlterarTarefa.getAnexo());
+            notificarObservadores();
             ViewAlterarTarefa.limparCampos();
             ViewAlterarTarefa.exibirMensagem("TAREFA SALVA COM SUCESSO!");
             ComboTarefa();
@@ -87,8 +89,9 @@ public class ControladorViewAlterarTarefa {
     
     public void deletar(){
         Tarefa SelectedItem = (Tarefa) ViewAlterarTarefa.getComboTarefa();
-        repositorioTarefa.remover(SelectedItem);    
+        repositorioTarefa.remover(SelectedItem);
         ViewAlterarTarefa.exibirMensagem("TAREFA DELETADA COM SUCESSO!");
+        notificarObservadores();
         fecharTela();
     }
     
