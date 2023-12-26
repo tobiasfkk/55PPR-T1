@@ -8,8 +8,10 @@ Refatoração do trabalho da disciplina de Programação II disponível no link:
 Padrões a serem implementados:
 
     Singleton - João
-    Observer - Tobias
+    Observer - feito
     MVC - feito
     Prototype, Façade, Template Method e Factory Method (necessário pelo menos dois)
+    Factory Method - feito(acho)
+    Template Method - feito(acho)
     Command
-    Abstract Factory
+    Abstract Factory - possivelente ta feito, tem q conferir

@@ -34,6 +34,7 @@ public class ViewInicial extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jlImagem = new javax.swing.JLabel();
         btnIniciar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(350, 350));
@@ -42,7 +43,7 @@ public class ViewInicial extends javax.swing.JFrame {
         jlImagem.setPreferredSize(new java.awt.Dimension(300, 400));
         jPanel1.add(jlImagem);
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 370, 420));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 370, 490));
 
         btnIniciar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnIniciar.setText("INICIAR");
@@ -51,7 +52,12 @@ public class ViewInicial extends javax.swing.JFrame {
                 btnIniciarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnIniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 320, 70));
+        getContentPane().add(btnIniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 540, 320, 30));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("----------------- AGENDA -----------------");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 350, 40));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -97,6 +103,7 @@ public class ViewInicial extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIniciar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel jlImagem;
     // End of variables declaration//GEN-END:variables
