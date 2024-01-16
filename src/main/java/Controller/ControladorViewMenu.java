@@ -14,10 +14,17 @@ public class ControladorViewMenu {
     
     private ViewMenu viewMenu = new ViewMenu();
     private Tarefa tarefa;
-
+    ControladorViewListaTarefa controladorViewListaTarefa = new ControladorViewListaTarefa();
+        
+        ControladorViewCriarTarefa controladorViewCriarTarefa = new ControladorViewCriarTarefa();
+        
+    
     public ControladorViewMenu() {
         exibir();
-        adicionarAcoes();                
+        adicionarAcoes();
+        controladorViewListaTarefa.abrirTela();
+        controladorViewCriarTarefa.adicionarObservador(controladorViewListaTarefa);
+        controladorViewCriarTarefa.fecharTela();
     }
     
     public void exibir(){
@@ -25,7 +32,9 @@ public class ControladorViewMenu {
     }
       
     public void fechar(){
+        controladorViewListaTarefa.fecharTela();
         viewMenu.fecharTela();
+        
     }
     
     public void cadastrarCategoria(){

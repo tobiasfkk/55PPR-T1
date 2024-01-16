@@ -11,7 +11,7 @@ public class ControladorViewListaTarefa implements Observador {
     private TarefaDAO repositorioTarefa = new TarefaDAO();
     
     public ControladorViewListaTarefa() {
-        abrirTela();
+//        abrirTela();
     }
     
     public void abrirTela(){

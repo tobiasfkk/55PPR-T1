@@ -24,10 +24,11 @@ public class ControladorViewInicial {
    
     public void abrirMenu() {     
         ControladorViewMenu controladorViewMenu = new ControladorViewMenu();
-        ControladorViewListaTarefa controladorViewListaTarefa = new ControladorViewListaTarefa();
-        ControladorViewCriarTarefa controladorViewCriarTarefa = new ControladorViewCriarTarefa();
-        controladorViewCriarTarefa.adicionarObservador(controladorViewListaTarefa);
-        controladorViewCriarTarefa.fecharTela();
+//        ControladorViewListaTarefa controladorViewListaTarefa = new ControladorViewListaTarefa();
+//        controladorViewListaTarefa.abrirTela();
+//        ControladorViewCriarTarefa controladorViewCriarTarefa = new ControladorViewCriarTarefa();
+//        controladorViewCriarTarefa.adicionarObservador(controladorViewListaTarefa);
+//        controladorViewCriarTarefa.fecharTela();
         fechar();
     }
     
