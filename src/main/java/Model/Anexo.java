@@ -8,11 +8,20 @@ public class Anexo {
     private int numeroTarefa;
     private File anexo;
 
-    public Anexo(String nomeAnexo, String extAnexo, int numeroTarefa, File anexo) {
+    private static Anexo instance;  // A instância deve ser static
+
+    private Anexo(String nomeAnexo, String extAnexo, int numeroTarefa, File anexo) {
         this.nomeAnexo = nomeAnexo;
         this.extAnexo = extAnexo;
         this.numeroTarefa = numeroTarefa;
         this.anexo = anexo;
+    }
+
+    public static synchronized Anexo getInstance(String nomeAnexo, String extAnexo, int numeroTarefa, File anexo) {
+        if (instance == null) {
+            instance = new Anexo(nomeAnexo, extAnexo, numeroTarefa, anexo);
+        }
+        return instance;
     }
 
     public File getAnexo() {

@@ -3,17 +3,24 @@ package DAO;
 import Model.Anexo;
 import interfaces.AnexoInterface;
 import java.util.HashSet;
-import java.util.List;
+import java.util.Set;
 
-public class AnexoDAO implements AnexoInterface{
-    
-    private static List<Anexo>anexos;
-    
-    public AnexoDAO(){
-        if(anexos == null){
-            anexos = (List<Anexo>) new HashSet<Anexo>();
+public class AnexoDAO implements AnexoInterface {
+
+    private static AnexoDAO instance;
+    private static Set<Anexo> anexos;
+
+    private AnexoDAO() {
+        if (anexos == null) {
+            anexos = new HashSet<>();
         }
-  
+    }
+
+    public static synchronized AnexoDAO getInstance() {
+        if (instance == null) {
+            instance = new AnexoDAO();
+        }
+        return instance;
     }
 
     @Override
@@ -23,7 +30,6 @@ public class AnexoDAO implements AnexoInterface{
 
     @Override
     public Anexo buscar() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        throw new UnsupportedOperationException("Not supported yet.");
     }
-    
 }
