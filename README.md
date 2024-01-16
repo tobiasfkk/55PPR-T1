@@ -14,4 +14,4 @@ Padrões a serem implementados:
     Factory Method - 
     Template Method - feito
     Command
-    Abstract Factory - possivelente ta feito, tem q conferir
+    Abstract Factory - fazer com a classe de categoria
