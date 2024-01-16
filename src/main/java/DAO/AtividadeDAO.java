@@ -7,11 +7,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class TarefaDAO implements TarefaInterface{
+public class AtividadeDAO implements TarefaInterface{
     
     private static List<Tarefa>tarefas;
 
-    public TarefaDAO(){
+    public AtividadeDAO(){
         if(tarefas == null)
            tarefas = new ArrayList<>();
     }

@@ -1,6 +1,6 @@
 package Controller;
 
-import DAO.TarefaDAO;
+import DAO.AtividadeDAO;
 import Model.Tarefa;
 import Observador.Observador;
 import View.ViewListaTarefa;
@@ -8,7 +8,7 @@ import java.util.List;
 
 public class ControladorViewListaTarefa implements Observador {
     private ViewListaTarefa ViewListaTarefa = new ViewListaTarefa();
-    private TarefaDAO repositorioTarefa = new TarefaDAO();
+    private AtividadeDAO repositorioTarefa = new AtividadeDAO();
     
     public ControladorViewListaTarefa() {
 //        abrirTela();
