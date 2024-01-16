@@ -2,12 +2,12 @@ package DAO;
 
 import Model.Categoria;
 import Model.Tarefa;
-import interfaces.TarefaInterface;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import interfaces.AtividadeInterface;
 
-public class AtividadeDAO implements TarefaInterface{
+public class AtividadeDAO implements AtividadeInterface{
     
     private static List<Tarefa>tarefas;
 
