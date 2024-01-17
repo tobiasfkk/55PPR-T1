@@ -1,6 +1,6 @@
 package Controller;
 
-import DAO.TarefaDAO;
+import DAO.AtividadeDAO;
 import DAO.CategoriaDAO;
 import DAO.ObservadorDAO;
 import Exception.CampoVazioException;
@@ -60,7 +60,7 @@ public class ControladorViewCriarTarefa extends Observado{
             Tarefa tarefa = new Tarefa( viewCadastrarTarefa.getTitulo(), viewCadastrarTarefa.getDataConclusao(), viewCadastrarTarefa.getPrioridade(), viewCadastrarTarefa.getStatus(), viewCadastrarTarefa.getDescricao(), viewCadastrarTarefa.getCategoria());
             viewCadastrarTarefa.enviarImagem();
             tarefa.setAnexo(viewCadastrarTarefa.getAnexo());
-            TarefaDAO tarefaDAO = new TarefaDAO();
+            AtividadeDAO tarefaDAO = new AtividadeDAO();
             tarefaDAO.gravar(tarefa);
             notificarObservadores();
             log.log("Tarefa foi inserida com sucesso!" + "Titulo: "+viewCadastrarTarefa.getTitulo().toString() );

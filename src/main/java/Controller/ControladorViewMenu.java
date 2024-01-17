@@ -1,14 +1,14 @@
 package Controller;
 
 import DAO.CategoriaDAO;
-import DAO.TarefaDAO;
+import DAO.AtividadeDAO;
 import Model.Categoria;
 import Model.Tarefa;
 import View.ViewMenu;
 import interfaces.CategoriaInterface;
-import interfaces.TarefaInterface;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import interfaces.AtividadeInterface;
 
 public class ControladorViewMenu {
     
@@ -67,7 +67,7 @@ public class ControladorViewMenu {
     }
     
     public void visualiazarTarefa(){
-        TarefaInterface repositorioTarefa = new TarefaDAO();
+        AtividadeInterface repositorioTarefa = new AtividadeDAO();
         boolean entrou = false;
         for (Tarefa tarefa : repositorioTarefa.buscarTodasTarefas()) {
             entrou = true;

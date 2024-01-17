@@ -5,7 +5,7 @@ import Model.Tarefa;
 import java.util.Date;
 import java.util.List;
 
- public interface TarefaInterface {
+ public interface AtividadeInterface {
     
     public void gravar(Tarefa tarefa);
     public Tarefa buscar(Date data);

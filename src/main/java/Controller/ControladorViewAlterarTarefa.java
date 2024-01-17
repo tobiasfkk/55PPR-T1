@@ -1,7 +1,7 @@
 package Controller;
 
 import DAO.CategoriaDAO;
-import DAO.TarefaDAO;
+import DAO.AtividadeDAO;
 import Exception.CampoVazioException;
 import Model.Categoria;
 import Model.Tarefa;
@@ -14,7 +14,7 @@ import java.util.Map;
 
 public class ControladorViewAlterarTarefa extends Observado{
     private ViewAlterarTarefa ViewAlterarTarefa = new ViewAlterarTarefa();
-    private TarefaDAO repositorioTarefa = new TarefaDAO();
+    private AtividadeDAO repositorioTarefa = new AtividadeDAO();
     private CategoriaDAO repositorioCategoria = new CategoriaDAO();
     
     public ControladorViewAlterarTarefa() {
