@@ -1,23 +1,28 @@
 package Controller;
 
 import DAO.CategoriaDAO;
-import DAO.TarefaDAO;
+import DAO.AtividadeDAO;
 import Model.Categoria;
 import Model.Tarefa;
 import View.ViewMenu;
 import interfaces.CategoriaInterface;
-import interfaces.TarefaInterface;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import interfaces.AtividadeInterface;
 
 public class ControladorViewMenu {
     
     private ViewMenu viewMenu = new ViewMenu();
     private Tarefa tarefa;
-
+    ControladorViewListaTarefa controladorViewListaTarefa = new ControladorViewListaTarefa();
+    ControladorViewCriarTarefa controladorViewCriarTarefa = new ControladorViewCriarTarefa();
+        
     public ControladorViewMenu() {
         exibir();
-        adicionarAcoes();                
+        adicionarAcoes();
+        controladorViewListaTarefa.abrirTela();
+        controladorViewCriarTarefa.adicionarObservador(controladorViewListaTarefa);
+        controladorViewCriarTarefa.fecharTela();
     }
     
     public void exibir(){
@@ -25,7 +30,8 @@ public class ControladorViewMenu {
     }
       
     public void fechar(){
-        viewMenu.fecharTela();
+        controladorViewListaTarefa.fecharTela();
+        viewMenu.fecharTela();   
     }
     
     public void cadastrarCategoria(){
@@ -61,7 +67,7 @@ public class ControladorViewMenu {
     }
     
     public void visualiazarTarefa(){
-        TarefaInterface repositorioTarefa = new TarefaDAO();
+        AtividadeInterface repositorioTarefa = new AtividadeDAO();
         boolean entrou = false;
         for (Tarefa tarefa : repositorioTarefa.buscarTodasTarefas()) {
             entrou = true;

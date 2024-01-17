@@ -4,9 +4,8 @@
  */
 package View;
 
-import DAO.TarefaDAO;
+import DAO.AtividadeDAO;
 import Model.TarefaTableModel;
-import interfaces.TarefaInterface;
 
 import DAO.CategoriaDAO;
 import Model.Categoria;
@@ -14,6 +13,7 @@ import Model.Tarefa;
 import java.awt.Point;
 import java.util.List;
 import interfaces.CategoriaInterface;
+import interfaces.AtividadeInterface;
 
 /**
  *
@@ -26,7 +26,7 @@ public class ViewPrincipal extends javax.swing.JFrame {
      */
     public ViewPrincipal() {
         initComponents();
-        TarefaInterface repositorio = new TarefaDAO();
+        AtividadeInterface repositorio = new AtividadeDAO();
         TarefaTableModel model = new TarefaTableModel(repositorio.buscarTodasTarefas());
         campoGeral.setModel(model);
     }
@@ -181,7 +181,7 @@ public class ViewPrincipal extends javax.swing.JFrame {
 //        String ModuloCodigoStr = ComboModulo.toString().substring(0 , iend);
 //        int numeromodulo = Integer.parseInt(ModuloCodigoStr);
 //        System.out.println(ModuloCodigoStr);
-        TarefaInterface repositorio = new TarefaDAO();
+        AtividadeInterface repositorio = new AtividadeDAO();
         TarefaTableModel model = new TarefaTableModel(repositorio.buscarTodasTarefas());
         //TarefaTableModel model = new TarefaTableModel(repositorio.buscarTodasTarefasModulo(ComboModulo.getItemCount()));
         campoGeral.setModel(model);
