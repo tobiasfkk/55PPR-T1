@@ -15,3 +15,7 @@ Padrões a serem implementados:
     Template Method - feito
     Command
     Abstract Factory - possivelente ta feito, tem q conferir
+
+Projeto Java com Java Swing
+
+Para rodar a aplicação, basta buildar a classe APP.java
