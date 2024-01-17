@@ -5,6 +5,7 @@ import DAO.CategoriaDAO;
 import DAO.ObservadorDAO;
 import Exception.CampoVazioException;
 import Model.Categoria;
+import Model.Logger;
 import Model.Status;
 import Model.Tarefa;
 import Observado.Observado;
@@ -21,6 +22,7 @@ import java.util.Map;
 public class ControladorViewCriarTarefa extends Observado{
     private ViewCriarTarefa viewCadastrarTarefa = new ViewCriarTarefa();
     private CategoriaDAO categoriaDAO = new CategoriaDAO();
+    private Logger log = Logger.getInstance();
     
     public ControladorViewCriarTarefa() {
         valoresCampoPrioridade();
@@ -61,6 +63,8 @@ public class ControladorViewCriarTarefa extends Observado{
             AtividadeDAO tarefaDAO = new AtividadeDAO();
             tarefaDAO.gravar(tarefa);
             notificarObservadores();
+            log.log("Tarefa foi inserida com sucesso!" + "Titulo: "+viewCadastrarTarefa.getTitulo().toString() );
+            log.exibirLogs();
             viewCadastrarTarefa.limparCampos();
             viewCadastrarTarefa.exibirMensagem("TAREFA CADASTRADA COM SUCESSO!");
             fecharTela();
