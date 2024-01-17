@@ -13,7 +13,7 @@ Padrões a serem implementados:
     Prototype, Façade, Template Method e Factory Method (necessário pelo menos dois)
     Factory Method - 
     Template Method - feito
-    Command
+    Command - feito
     Abstract Factory - possivelente ta feito, tem q conferir
 
 Projeto Java com Java Swing
