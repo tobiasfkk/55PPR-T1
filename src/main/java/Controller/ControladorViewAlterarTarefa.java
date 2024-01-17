@@ -1,5 +1,7 @@
 package Controller;
 
+import Comando.Command;
+import Comando.SetVisibilityCommand;
 import DAO.CategoriaDAO;
 import DAO.AtividadeDAO;
 import Exception.CampoVazioException;
@@ -16,19 +18,17 @@ public class ControladorViewAlterarTarefa extends Observado{
     private ViewAlterarTarefa ViewAlterarTarefa = new ViewAlterarTarefa();
     private AtividadeDAO repositorioTarefa = new AtividadeDAO();
     private CategoriaDAO repositorioCategoria = new CategoriaDAO();
+    private Command alterarTarefaCommand;
     
     public ControladorViewAlterarTarefa() {
         carregarComboCategoria();
         carregarComboTarefa();
         valoresCampoStatus();
         valoresCampoPrioridade();
+        alterarTarefaCommand = new SetVisibilityCommand(ViewAlterarTarefa);
+        alterarTarefaCommand.execute();
         adicionarAcao();
         ComboTarefa();
-        abrirTela();
-    }
-    
-    public void abrirTela(){
-        ViewAlterarTarefa.exibir();
     }
     
     public void fecharTela(){

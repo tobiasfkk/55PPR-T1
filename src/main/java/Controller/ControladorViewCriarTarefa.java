@@ -1,5 +1,7 @@
 package Controller;
 
+import Comando.Command;
+import Comando.SetVisibilityCommand;
 import DAO.AtividadeDAO;
 import DAO.CategoriaDAO;
 import DAO.ObservadorDAO;
@@ -23,18 +25,21 @@ public class ControladorViewCriarTarefa extends Observado{
     private ViewCriarTarefa viewCadastrarTarefa = new ViewCriarTarefa();
     private CategoriaDAO categoriaDAO = new CategoriaDAO();
     private Logger log = Logger.getInstance();
+    private Command cadastrarTarefaCommand;
     
     public ControladorViewCriarTarefa() {
         valoresCampoPrioridade();
         valoresCampoCategoria();
         valoresCampoStatus();
         adicionarAcao();
-        abrirTela();
+        cadastrarTarefaCommand = new SetVisibilityCommand(viewCadastrarTarefa);
+        cadastrarTarefaCommand.execute();
+//        abrirTela();
     }
     
-    public void abrirTela(){
-        viewCadastrarTarefa.exibir();
-    }
+//    public void abrirTela(){
+//        viewCadastrarTarefa.exibir();
+//    }
     
     public void fecharTela(){
         viewCadastrarTarefa.fechar();
