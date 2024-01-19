@@ -64,7 +64,8 @@ public class ControladorViewCriarTarefa extends Observado{
         if((viewCadastrarTarefa.getTitulo().isEmpty())||(viewCadastrarTarefa.getDataConclusao().equals("  /  /  "))){
             throw new CampoVazioException("TÍTULO E DATA DE CONCLUSÃO NÃO PODEM ESTAR VAZIOS!");
         }else{
-            Tarefa tarefa = new Tarefa( viewCadastrarTarefa.getTitulo(), viewCadastrarTarefa.getDataConclusao(), viewCadastrarTarefa.getPrioridade(), viewCadastrarTarefa.getStatus(), viewCadastrarTarefa.getDescricao(), viewCadastrarTarefa.getCategoria());
+            AtividadeFactory tarefaFactory = new TarefaFactory();
+            Tarefa tarefa = (Tarefa) tarefaFactory.createAtividade(viewCadastrarTarefa.getTitulo(), viewCadastrarTarefa.getDataConclusao(), viewCadastrarTarefa.getPrioridade(), viewCadastrarTarefa.getStatus(), viewCadastrarTarefa.getDescricao(), viewCadastrarTarefa.getCategoria());
             viewCadastrarTarefa.enviarImagem();
             tarefa.setAnexo(viewCadastrarTarefa.getAnexo());
             AtividadeDAO tarefaDAO = new AtividadeDAO();
@@ -77,12 +78,7 @@ public class ControladorViewCriarTarefa extends Observado{
             fecharTela();
         }
     }
-    
 
-
-
-
-    
     public void valoresCampoPrioridade(){
         Map<String, String> prioridadeCombo = new HashMap<String, String>();
 

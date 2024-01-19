@@ -16,17 +16,6 @@ public class Tarefa extends Atividade {
         contador++; 
     }
     
-//    public Tarefa(AtividadeFactory factory, String titulo, String dataconclusao, String prioridade, String status, String descricao, Categoria categoria) {
-//        super(titulo, dataconclusao, prioridade, status, descricao);
-//        this.categoria = categoria;
-//        this.numerotarefa = contador;
-//
-//        // Usando a factory para criar a instância de Tarefa
-//        factory.createAtividade(titulo, dataconclusao, prioridade, status, descricao, categoria);
-//
-//        contador++;
-//    } 
-    
     public static int getContador() {
         return contador;
     }
