@@ -10,9 +10,11 @@ import Model.Categoria;
 import Model.Logger;
 import Model.Status;
 import Model.Tarefa;
+import Model.TarefaFactory;
 import Observado.Observado;
 import Observador.Observador;
 import View.ViewCriarTarefa;
+import interfaces.AtividadeFactory;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -75,6 +77,11 @@ public class ControladorViewCriarTarefa extends Observado{
             fecharTela();
         }
     }
+    
+
+
+
+
     
     public void valoresCampoPrioridade(){
         Map<String, String> prioridadeCombo = new HashMap<String, String>();

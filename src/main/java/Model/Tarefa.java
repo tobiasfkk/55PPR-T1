@@ -1,5 +1,7 @@
 package Model;
 
+import interfaces.AtividadeFactory;
+
 public class Tarefa extends Atividade {
     
     private static int contador = 1;
@@ -8,12 +10,23 @@ public class Tarefa extends Atividade {
     private Categoria categoria;
    
     public Tarefa(String titulo, String dataconclusao, String prioridade, String status, String descricao, Categoria categoria) {
-        super(titulo,dataconclusao,prioridade,status,descricao);
+        super(titulo, dataconclusao, prioridade, status, descricao);
         this.categoria = categoria;
         this.numerotarefa = contador;
-        contador++;
-    }             
-
+        contador++; 
+    }
+    
+//    public Tarefa(AtividadeFactory factory, String titulo, String dataconclusao, String prioridade, String status, String descricao, Categoria categoria) {
+//        super(titulo, dataconclusao, prioridade, status, descricao);
+//        this.categoria = categoria;
+//        this.numerotarefa = contador;
+//
+//        // Usando a factory para criar a instância de Tarefa
+//        factory.createAtividade(titulo, dataconclusao, prioridade, status, descricao, categoria);
+//
+//        contador++;
+//    } 
+    
     public static int getContador() {
         return contador;
     }
