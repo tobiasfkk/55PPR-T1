@@ -1,24 +1,22 @@
 # 55PPR-T1
-Trabalho 1 da disciplina de Padrões de Projeto
+Trabalho 1 da disciplina de Padrões de Projeto disponível no link: https://github.com/tobiasfkk/55PPR-T1
 
-Refatoração do trabalho da disciplina de Programação II disponível no link:  
-
-    https://github.com/tobiasfkk/LembretesMVC
+Refatoração do trabalho da disciplina de Programação 2 disponível no link: https://github.com/tobiasfkk/LembretesMVC
 
 Padrões a serem implementados:
 
-    Singleton - João
-    Observer - feito
-    MVC - feito
-    Prototype, Façade, Template Method e Factory Method (necessário pelo menos dois)
-    Factory Method - 
-    Template Method - feito
-    Command - feito
-    Abstract Factory - possivelente ta feito, tem q conferir
+    Singleton           - feito;
+    Observer            - feito;
+    MVC                 - feito;
+    Factory Method      - feito;
+    Template Method     - feito;
+    Command             - feito;
+    Abstract Factory    - pendente.
 
-Projeto Java com Java Swing
+Projeto Java com Java Swing.
 
 Para rodar a aplicação, basta buildar a classe APP.java
 
 outros:
     state - usar para aplicar funcionalidade no botao Ativo/Inativo
+Para rodar a aplicação, basta buildar a classe APP.java, caminho: ...55PPR-T1\src\main\java\App\APP.java.
