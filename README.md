@@ -19,3 +19,6 @@ Padrões a serem implementados:
 Projeto Java com Java Swing
 
 Para rodar a aplicação, basta buildar a classe APP.java
+
+outros:
+    state - usar para aplicar funcionalidade no botao Ativo/Inativo
