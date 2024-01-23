@@ -11,12 +11,11 @@ Padrões a serem implementados:
     Factory Method      - feito;
     Template Method     - feito;
     Command             - feito;
-    Abstract Factory    - pendente.
+    Abstract Factory    - feito.
 
 Projeto Java com Java Swing.
 
-Para rodar a aplicação, basta buildar a classe APP.java
-
-outros:
-    state - usar para aplicar funcionalidade no botao Ativo/Inativo
 Para rodar a aplicação, basta buildar a classe APP.java, caminho: ...55PPR-T1\src\main\java\App\APP.java.
+
+outros padroes:
+    state - usar para aplicar funcionalidade no botao Ativo/Inativo
