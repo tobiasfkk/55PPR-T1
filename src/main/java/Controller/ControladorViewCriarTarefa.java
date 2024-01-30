@@ -1,5 +1,7 @@
 package Controller;
 
+import Comando.Command;
+import Comando.SetVisibilityCommand;
 import DAO.AtividadeDAO;
 import DAO.CategoriaDAO;
 import DAO.ObservadorDAO;
@@ -8,9 +10,11 @@ import Model.Categoria;
 import Model.Logger;
 import Model.Status;
 import Model.Tarefa;
+import Model.TarefaFactory;
 import Observado.Observado;
 import Observador.Observador;
 import View.ViewCriarTarefa;
+import interfaces.AtividadeFactory;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -23,18 +27,21 @@ public class ControladorViewCriarTarefa extends Observado{
     private ViewCriarTarefa viewCadastrarTarefa = new ViewCriarTarefa();
     private CategoriaDAO categoriaDAO = new CategoriaDAO();
     private Logger log = Logger.getInstance();
+    private Command cadastrarTarefaCommand;
     
     public ControladorViewCriarTarefa() {
         valoresCampoPrioridade();
         valoresCampoCategoria();
         valoresCampoStatus();
         adicionarAcao();
-        abrirTela();
+        cadastrarTarefaCommand = new SetVisibilityCommand(viewCadastrarTarefa);
+        cadastrarTarefaCommand.execute();
+//        abrirTela();
     }
     
-    public void abrirTela(){
-        viewCadastrarTarefa.exibir();
-    }
+//    public void abrirTela(){
+//        viewCadastrarTarefa.exibir();
+//    }
     
     public void fecharTela(){
         viewCadastrarTarefa.fechar();
@@ -57,7 +64,8 @@ public class ControladorViewCriarTarefa extends Observado{
         if((viewCadastrarTarefa.getTitulo().isEmpty())||(viewCadastrarTarefa.getDataConclusao().equals("  /  /  "))){
             throw new CampoVazioException("TÍTULO E DATA DE CONCLUSÃO NÃO PODEM ESTAR VAZIOS!");
         }else{
-            Tarefa tarefa = new Tarefa( viewCadastrarTarefa.getTitulo(), viewCadastrarTarefa.getDataConclusao(), viewCadastrarTarefa.getPrioridade(), viewCadastrarTarefa.getStatus(), viewCadastrarTarefa.getDescricao(), viewCadastrarTarefa.getCategoria());
+            AtividadeFactory tarefaFactory = new TarefaFactory();
+            Tarefa tarefa = (Tarefa) tarefaFactory.createAtividade(viewCadastrarTarefa.getTitulo(), viewCadastrarTarefa.getDataConclusao(), viewCadastrarTarefa.getPrioridade(), viewCadastrarTarefa.getStatus(), viewCadastrarTarefa.getDescricao(), viewCadastrarTarefa.getCategoria());
             viewCadastrarTarefa.enviarImagem();
             tarefa.setAnexo(viewCadastrarTarefa.getAnexo());
             AtividadeDAO tarefaDAO = new AtividadeDAO();
@@ -70,7 +78,7 @@ public class ControladorViewCriarTarefa extends Observado{
             fecharTela();
         }
     }
-    
+
     public void valoresCampoPrioridade(){
         Map<String, String> prioridadeCombo = new HashMap<String, String>();
 

@@ -1,5 +1,6 @@
 package Model;
 
+import interfaces.AtividadeFactory;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;

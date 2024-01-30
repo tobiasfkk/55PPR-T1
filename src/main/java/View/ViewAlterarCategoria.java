@@ -9,10 +9,6 @@ public class ViewAlterarCategoria extends javax.swing.JFrame {
     public ViewAlterarCategoria() {
         initComponents();
     }
-        
-    public void exibir(){
-        setVisible(true);
-    }
     
     public void fechar(){
         setVisible(false);

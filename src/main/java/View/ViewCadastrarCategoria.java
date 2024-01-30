@@ -4,15 +4,9 @@ import javax.swing.JOptionPane;
 import java.awt.event.ActionListener;
 
 public class ViewCadastrarCategoria extends javax.swing.JFrame {
-
-//    static int numeroCategoria;
     
     public ViewCadastrarCategoria() {
         initComponents();
-    }
-    
-    public void exibir(){
-        setVisible(true);
     }
     
     public void fechar(){

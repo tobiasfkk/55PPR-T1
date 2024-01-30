@@ -1,5 +1,7 @@
 package Controller;
 
+import Comando.Command;
+import Comando.SetVisibilityCommand;
 import DAO.CategoriaDAO;
 import Exception.CampoVazioException;
 import Model.Categoria;
@@ -10,15 +12,13 @@ import java.awt.event.ActionListener;
 public class ControladorViewCadastrarCategoria {
     
     private ViewCadastrarCategoria viewCadastrarCategoria = new ViewCadastrarCategoria();
-
+    private Command cadastrarCategoriaCommand;
+    
     public ControladorViewCadastrarCategoria() {
         valoresCampoStatus();
-        abrirTela();
+        cadastrarCategoriaCommand = new SetVisibilityCommand(viewCadastrarCategoria);
+        cadastrarCategoriaCommand.execute();
         adicionarAcao();
-    }
-    
-    public void abrirTela(){
-        viewCadastrarCategoria.exibir();
     }
     
     public void fecharTela(){
