@@ -1,5 +1,8 @@
 package Model;
 
+import State.CategoriaAtivaState;
+import State.CategoriaInativaState;
+import State.CategoriaState;
 import interfaces.AtividadeFactory;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -12,12 +15,12 @@ public class Categoria {
     private String nomecategoria;
     private String descricaocategoria; 
     private String datahoracriacao;
-    private String status;
+    private CategoriaState status;
 
     public Categoria(String nomecategoria, String descricaocategoria, String status) {
         this.nomecategoria = nomecategoria;
         this.descricaocategoria = descricaocategoria;
-        this.status = status;
+        this.status = new CategoriaAtivaState();
         
         this.numerocategoria = contador;
         contador++;
@@ -43,7 +46,7 @@ public class Categoria {
         this.datahoracriacao = datahoracriacao;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(CategoriaState status) {
         this.status = status;
     }
 
@@ -63,8 +66,23 @@ public class Categoria {
         return datahoracriacao;
     }
 
-    public String getStatus() {
+    public CategoriaState getStatus() {
         return status;
+    }
+    
+//    public void ativar() {
+//        // Altera para o estado Ativo
+//        setStatus(new CategoriaAtivaState());
+//    }
+//
+//    public void desativar() {
+//        // Altera para o estado Inativo
+//        setStatus(new CategoriaInativaState());
+//    }
+
+    public void realizarOperacao() {
+        // Delega a operação para o estado atual
+        status.executarComportamento(this);
     }
 
     @Override

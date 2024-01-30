@@ -5,6 +5,7 @@ import Comando.SetVisibilityCommand;
 import DAO.CategoriaDAO;
 import Exception.CampoVazioException;
 import Model.Categoria;
+import State.CategoriaState;
 import View.ViewCadastrarCategoria;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -42,20 +43,28 @@ public class ControladorViewCadastrarCategoria {
         if(viewCadastrarCategoria.getNome().isEmpty()||viewCadastrarCategoria.getDescricao().isEmpty()){
             throw new CampoVazioException("NOME E CATEGORIA NÃO PODEM ESTAR VAZIOS!");
         }else{
+            CategoriaState status = obterEstadoPelaDescricao(viewCadastrarCategoria.getSituacao());
             Categoria categoria = new Categoria(viewCadastrarCategoria.getNome(), viewCadastrarCategoria.getDescricao(), viewCadastrarCategoria.getSituacao());
             CategoriaDAO categoriaDAO = new CategoriaDAO();
             categoriaDAO.gravar(categoria);
+            categoria.realizarOperacao(); // Inicializa o status conforme necessário
             viewCadastrarCategoria.limparCampos();
             viewCadastrarCategoria.exibirMensagem("CATEGORIA CADASTRADA COM SUCESSO!");
             fecharTela();
         }
     }
     
-    public void valoresCampoStatus(){
-            
-        viewCadastrarCategoria.CampoStatus("Ativo");
-        viewCadastrarCategoria.CampoStatus("Inativo");
-
+//    public void valoresCampoStatus(){
+//            
+//        viewCadastrarCategoria.CampoStatus("Ativo");
+//        viewCadastrarCategoria.CampoStatus("Inativo");
+//
+//    }
+    
+    private CategoriaState obterEstadoPelaDescricao(String descricao) {
+        if(descricao == "Ativo"){
+            return
+        }
     }
     
 }
