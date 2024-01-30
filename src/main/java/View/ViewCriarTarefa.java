@@ -20,9 +20,9 @@ public class ViewCriarTarefa extends javax.swing.JFrame {
         initComponents();
     }
       
-    public void exibir(){
-        setVisible(true);
-    }
+//    public void exibir(){
+//        setVisible(true);
+//    }
     
     public void fechar(){
         setVisible(false);

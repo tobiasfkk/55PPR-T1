@@ -1,5 +1,7 @@
 package Controller;
 
+import Comando.Command;
+import Comando.SetVisibilityCommand;
 import DAO.CategoriaDAO;
 import Exception.CampoVazioException;
 import Model.Categoria;
@@ -11,16 +13,14 @@ public class ControladorViewAlterarCategoria {
     
     private ViewAlterarCategoria viewAlterarCategoria = new ViewAlterarCategoria();
     private CategoriaDAO repositorioCategoria = new CategoriaDAO();
-
+    private Command alterarCategoriaCommand;
+    
     public ControladorViewAlterarCategoria() {
         carregarComboCategoria();
         valoresCampoStatus();
+        alterarCategoriaCommand = new SetVisibilityCommand(viewAlterarCategoria);
+        alterarCategoriaCommand.execute();
         adicionarAcao();
-        abrirTela();
-    }
-    
-    public void abrirTela(){
-        viewAlterarCategoria.exibir();
     }
     
     public void fecharTela(){

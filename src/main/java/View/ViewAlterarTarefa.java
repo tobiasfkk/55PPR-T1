@@ -25,10 +25,6 @@ public class ViewAlterarTarefa extends javax.swing.JFrame {
         insereImagemLabel();
     }
     
-    public void exibir(){
-        setVisible(true);
-    }
-    
     public void fechar(){
         setVisible(false);
     }

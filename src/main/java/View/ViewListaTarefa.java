@@ -1,6 +1,7 @@
 package View;
 
 import Model.Tarefa;
+import java.awt.event.ActionListener;
 import java.util.List;
 import javax.swing.DefaultListModel;
 
@@ -30,6 +31,14 @@ public class ViewListaTarefa extends javax.swing.JFrame {
 
         ListaTarefa.setModel(model);
     }
+    
+    public void adicionarAcaoBotaoExcel(ActionListener acao){
+        BotaoExcel.addActionListener(acao);
+    }
+    
+    public void adicionarAcaoBotaoPDF(ActionListener acao){
+        BotaoPDF.addActionListener(acao);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -43,6 +52,8 @@ public class ViewListaTarefa extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         ListaTarefa = new javax.swing.JList<>();
         jLabel1 = new javax.swing.JLabel();
+        BotaoExcel = new javax.swing.JButton();
+        BotaoPDF = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,15 +63,24 @@ public class ViewListaTarefa extends javax.swing.JFrame {
         jLabel1.setText("------------------------------- LISTA DE TAREFAS -------------------------------");
         jLabel1.setToolTipText("");
 
+        BotaoExcel.setText("Excel");
+
+        BotaoPDF.setText("PDF");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(BotaoExcel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(BotaoPDF))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane1)))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -70,7 +90,11 @@ public class ViewListaTarefa extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BotaoExcel)
+                    .addComponent(BotaoPDF))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -112,6 +136,8 @@ public class ViewListaTarefa extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BotaoExcel;
+    private javax.swing.JButton BotaoPDF;
     private javax.swing.JList<String> ListaTarefa;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;

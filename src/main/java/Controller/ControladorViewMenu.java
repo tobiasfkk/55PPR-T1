@@ -1,9 +1,14 @@
 package Controller;
 
+import Comando.Command;
+import Comando.SetVisibilityCommand;
 import DAO.CategoriaDAO;
 import DAO.AtividadeDAO;
 import Model.Categoria;
 import Model.Tarefa;
+import View.ViewAlterarCategoria;
+import View.ViewCadastrarCategoria;
+import View.ViewCriarTarefa;
 import View.ViewMenu;
 import interfaces.CategoriaInterface;
 import java.awt.event.ActionEvent;
@@ -18,11 +23,12 @@ public class ControladorViewMenu {
     ControladorViewCriarTarefa controladorViewCriarTarefa = new ControladorViewCriarTarefa();
         
     public ControladorViewMenu() {
+
         exibir();
         adicionarAcoes();
         controladorViewListaTarefa.abrirTela();
         controladorViewCriarTarefa.adicionarObservador(controladorViewListaTarefa);
-        controladorViewCriarTarefa.fecharTela();
+        controladorViewCriarTarefa.fecharTela(); 
     }
     
     public void exibir(){
