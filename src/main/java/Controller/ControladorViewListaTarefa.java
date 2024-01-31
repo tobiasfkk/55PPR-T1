@@ -21,6 +21,11 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class ControladorViewListaTarefa implements Observador {
     private ViewListaTarefa ViewListaTarefa = new ViewListaTarefa();
@@ -66,10 +71,42 @@ public class ControladorViewListaTarefa implements Observador {
     }
     
     public void ExportarExcel(){
-//        RelatorioFactory fabricaExcel = new ExcelRelatorioFactory();
-//        Cabecalho cabecalhoExcel = fabricaExcel.criarCabecalho();
-//        Corpo corpoExcel = fabricaExcel.criarCorpo();
-//        Rodape rodapeExcel = fabricaExcel.criarRodape();    
+        RelatorioFactory fabricaExcel = new ExcelRelatorioFactory();
+        Cabecalho cabecalhoExcel = fabricaExcel.criarCabecalho();
+        Corpo corpoExcel = fabricaExcel.criarCorpo();
+        Rodape rodapeExcel = fabricaExcel.criarRodape();
+
+        String caminho = (System.getProperty("user.dir") + "\\src\\main\\java\\arquivos\\arquivo_excel.xlsx");
+
+        try (Workbook workbook = new XSSFWorkbook()) {
+            Sheet sheet = workbook.createSheet("Relatorio");
+
+            // Criar uma linha (linha de cabeçalho)
+            Row headerRow = sheet.createRow(0);
+
+            // Adicionar cabeçalhos (substitua pelos cabeçalhos reais)
+            Cell headerCell = headerRow.createCell(0);
+            headerCell.setCellValue(cabecalhoExcel.obterConteudo());
+
+            headerCell = headerRow.createCell(1);
+            headerCell.setCellValue("Outro Cabeçalho");
+
+            // Adicionar dados (substitua pelos dados reais)
+            Row dataRow = sheet.createRow(1);
+
+            Cell dataCell = dataRow.createCell(0);
+            dataCell.setCellValue("Dado 1");
+
+            dataCell = dataRow.createCell(1);
+            dataCell.setCellValue("Dado 2");
+
+            // Salvar o arquivo Excel
+            try (FileOutputStream fileOut = new FileOutputStream(caminho)) {
+                workbook.write(fileOut);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     
     public void ExportarPDF() throws FileNotFoundException{
@@ -77,7 +114,7 @@ public class ControladorViewListaTarefa implements Observador {
         Cabecalho cabecalhoPDF = fabricaPDF.criarCabecalho();
         Corpo corpoPDF = fabricaPDF.criarCorpo();
         Rodape rodapePDF = fabricaPDF.criarRodape();
-        String caminho = (System.getProperty("user.dir")+"\\src\\main\\java\\arquivos\\arquivo.pdf");
+        String caminho = (System.getProperty("user.dir")+"\\src\\main\\java\\arquivos\\arquivo_pdf.pdf");
         Document documento = new Document();
         
         try {

@@ -22,6 +22,11 @@
             <artifactId>itextpdf</artifactId>
             <version>5.5.13</version> <!-- Use a versão mais recente disponível -->
         </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>5.0.0</version> <!-- Use a versão mais recente disponível -->
+        </dependency>
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
