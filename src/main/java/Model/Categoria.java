@@ -5,7 +5,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Categoria {
+public class Categoria extends Atividade{
     
     private static int contador = 1;
     private int numerocategoria;
@@ -13,8 +13,9 @@ public class Categoria {
     private String descricaocategoria; 
     private String datahoracriacao;
     private String status;
-
-    public Categoria(String nomecategoria, String descricaocategoria, String status) {
+                  
+    public Categoria(String nomecategoria, String dataconclusao, String prioridade, String status, String descricaocategoria) {
+        super(nomecategoria, dataconclusao, prioridade, status, descricaocategoria);
         this.nomecategoria = nomecategoria;
         this.descricaocategoria = descricaocategoria;
         this.status = status;
