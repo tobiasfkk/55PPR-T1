@@ -4,17 +4,17 @@ public class PDFRelatorioFactory implements RelatorioFactory {
 
     @Override
     public Cabecalho criarCabecalho() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return new PDFCabecalho();
     }
 
     @Override
     public Corpo criarCorpo() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return new PDFCorpo();
     }
 
     @Override
     public Rodape criarRodape() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return new PDFRodape();
     }
     
 }

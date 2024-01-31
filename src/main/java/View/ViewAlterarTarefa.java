@@ -141,7 +141,7 @@ public class ViewAlterarTarefa extends javax.swing.JFrame {
             String nome = "imagem" + Integer.toString(numeracao)+ tipo;
             try {
                 
-                 String caminho = "/Users/tobiaskiefer/NetBeansProjects/TrabalhoProg2MVC/trabalhoprog2-master/src/main/java/imagens/";
+                 String caminho = (System.getProperty("user.dir")+"\\src\\main\\java\\imagens\\");
                  File outputfile = new File(caminho+nome);  
                  txtNomeArquivo.setText(nome);
                  ImageIO.write(imagem, "jpg", outputfile);
