@@ -30,6 +30,8 @@ import java.io.IOException;
 public class ControladorViewListaTarefa implements Observador {
     private ViewListaTarefa ViewListaTarefa = new ViewListaTarefa();
     private AtividadeDAO repositorioTarefa = new AtividadeDAO();
+    List<Tarefa> tarefas = repositorioTarefa.buscarTodasTarefas();
+//    private int i;
     
     public ControladorViewListaTarefa() {
         adicionarAcoes();
@@ -88,21 +90,19 @@ public class ControladorViewListaTarefa implements Observador {
             Cell headerCell = headerRow.createCell(0);
             headerCell.setCellValue(cabecalhoExcel.obterConteudo());
 
-            headerCell = headerRow.createCell(1);
-            headerCell.setCellValue("Outro Cabeçalho");
-
-            // Adicionar dados (substitua pelos dados reais)
-            Row dataRow = sheet.createRow(1);
-
-            Cell dataCell = dataRow.createCell(0);
-            dataCell.setCellValue("Dado 1");
-
-            dataCell = dataRow.createCell(1);
-            dataCell.setCellValue("Dado 2");
+            
+            int i = 1;
+            for (Tarefa tarefa : tarefas) {
+                Row dataRow = sheet.createRow(i);
+                i++;
+                Cell dataCell = dataRow.createCell(0);
+                dataCell.setCellValue(corpoExcel.obterConteudo(tarefa));
+            }
 
             // Salvar o arquivo Excel
             try (FileOutputStream fileOut = new FileOutputStream(caminho)) {
                 workbook.write(fileOut);
+                ViewListaTarefa.exibirMensagem("Relatório Excel gerado no caminho .../src/main/java/arquivos");
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -122,10 +122,16 @@ public class ControladorViewListaTarefa implements Observador {
             documento.open();
             
             documento.add(new Paragraph(cabecalhoPDF.obterConteudo()));
-            documento.add(new Paragraph(corpoPDF.obterConteudo()));
+            for (Tarefa tarefa : tarefas) {
+                documento.add(new Paragraph(corpoPDF.obterConteudo(tarefa)));
+            }
+            
             documento.add(new Paragraph(rodapePDF.obterConteudo()));
 
             documento.close();
+            
+            ViewListaTarefa.exibirMensagem("Relatório PDF gerado no caminho .../src/main/java/arquivos");
+            
         } catch (DocumentException e) {
             e.printStackTrace();
         }

@@ -4,6 +4,7 @@ import Model.Tarefa;
 import java.awt.event.ActionListener;
 import java.util.List;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 public class ViewListaTarefa extends javax.swing.JFrame {
  
@@ -38,6 +39,10 @@ public class ViewListaTarefa extends javax.swing.JFrame {
     
     public void adicionarAcaoBotaoPDF(ActionListener acao){
         BotaoPDF.addActionListener(acao);
+    }
+    
+    public void exibirMensagem(String msg) {
+        JOptionPane.showMessageDialog(null, msg);
     }
 
     /**

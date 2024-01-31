@@ -95,6 +95,6 @@ public class Tarefa extends Atividade {
 
     @Override
     public String toString() {
-        return numerotarefa + " - " + descricao + " - " + datahoracriacao + " - " + prioridade + " - " + status;
+        return " -> " + titulo + " - " + descricao + " - " + datahoracriacao + " - " + prioridade + " - " + status;
     }
 }
