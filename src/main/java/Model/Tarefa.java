@@ -2,18 +2,28 @@ package Model;
 
 import interfaces.AtividadeFactory;
 
-public class Tarefa extends Atividade {
+interface ComponenteTarefa {
+    void operacao();
+}
+
+public class Tarefa extends Atividade implements ComponenteTarefa{
     
     private static int contador = 1;
     private int numerotarefa;
-    private String anexo; 
+    private String anexo;
     private Categoria categoria;
+   
    
     public Tarefa(String titulo, String dataconclusao, String prioridade, String status, String descricao, Categoria categoria) {
         super(titulo, dataconclusao, prioridade, status, descricao);
         this.categoria = categoria;
         this.numerotarefa = contador;
         contador++; 
+    }
+    
+    @Override
+    public void operacao() {
+        System.out.println(numerotarefa + " - " + descricao + " - " + datahoracriacao + " - " + prioridade + " - " + status);
     }
     
     public static int getContador() {
