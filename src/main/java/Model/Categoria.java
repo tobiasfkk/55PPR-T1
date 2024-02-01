@@ -69,7 +69,8 @@ public class Categoria extends Atividade{
     }
 
     @Override
-    public String toString() {
-        return numerocategoria + " - " + nomecategoria + " - " + descricaocategoria;
+    public String formatInformacoesEspecificas() {
+        return " - " + numerocategoria;
     }
+    
 }
