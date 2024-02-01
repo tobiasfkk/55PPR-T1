@@ -7,6 +7,8 @@ interface ComponenteTarefa {
 }
 
 public class Tarefa extends Atividade implements ComponenteTarefa{
+
+
     
     private static int contador = 1;
     private int numerotarefa;
@@ -101,10 +103,11 @@ public class Tarefa extends Atividade implements ComponenteTarefa{
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
-    
 
+    
     @Override
-    public String toString() {
-        return numerotarefa + " - " + descricao + " - " + datahoracriacao + " - " + prioridade + " - " + status;
+    protected String formatInformacoesEspecificas() {
+        // informações específicas da Tarefa
+        return " - " + datahoracriacao + " - " + prioridade + " - " + status;
     }
 }

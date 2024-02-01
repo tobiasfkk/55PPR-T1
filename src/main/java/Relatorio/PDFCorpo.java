@@ -1,10 +1,12 @@
 package Relatorio;
 
-public class PDFCorpo implements Corpo{
+import Model.Tarefa;
 
+public class PDFCorpo implements Corpo{
+    
     @Override
-    public String obterConteudo() {
-        return "Conteúdo do relatório PDF, apenas TESTE (por enquanto)";
+    public String obterConteudo(Tarefa tarefa) {
+        return "\n" + tarefa.toString();
     }
     
 }

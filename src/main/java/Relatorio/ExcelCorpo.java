@@ -1,10 +1,12 @@
 package Relatorio;
 
-public class ExcelCorpo implements Corpo{
+import Model.Tarefa;
 
+public class ExcelCorpo implements Corpo{
+  
     @Override
-    public String obterConteudo() {
-        return "Conteúdo do relatório Excel, apenas TESTE por enquanto!";
+    public String obterConteudo(Tarefa tarefa) {  
+        return "\n" + tarefa.toString();
     }
     
 }
