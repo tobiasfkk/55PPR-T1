@@ -1,7 +1,6 @@
 package DAO;
 
 import Model.Categoria;
-import State.CategoriaState;
 import interfaces.CategoriaInterface;
 import java.util.HashSet;
 import java.util.Set;
@@ -40,7 +39,7 @@ public class CategoriaDAO implements CategoriaInterface{
     }
 
     @Override
-    public void editar(int numerocategoria, String nomecategoria, String descricaocategoria, CategoriaState status) {
+    public void editar(int numerocategoria, String nomecategoria, String descricaocategoria, String status) {
         for(Categoria categoria1 : categorias){
              if (categoria1.getNumeroCategoria()== numerocategoria){
                  categoria1.setNomeCategoria(nomecategoria);
@@ -49,6 +48,4 @@ public class CategoriaDAO implements CategoriaInterface{
              }
          }
     }
-
-
 }
