@@ -4,17 +4,17 @@ public class ExcelRelatorioFactory implements RelatorioFactory {
 
     @Override
     public Cabecalho criarCabecalho() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return new ExcelCabecalho();
     }
 
     @Override
     public Corpo criarCorpo() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return new ExcelCorpo();
     }
 
     @Override
     public Rodape criarRodape() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       return new ExcelRodape();
     }
     
 }

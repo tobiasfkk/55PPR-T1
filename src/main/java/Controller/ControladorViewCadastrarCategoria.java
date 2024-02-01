@@ -5,7 +5,9 @@ import Comando.SetVisibilityCommand;
 import DAO.CategoriaDAO;
 import Exception.CampoVazioException;
 import Model.Categoria;
+import Model.CategoriaFactory;
 import View.ViewCadastrarCategoria;
+import interfaces.AtividadeFactory;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -42,7 +44,8 @@ public class ControladorViewCadastrarCategoria {
         if(viewCadastrarCategoria.getNome().isEmpty()||viewCadastrarCategoria.getDescricao().isEmpty()){
             throw new CampoVazioException("NOME E CATEGORIA NÃO PODEM ESTAR VAZIOS!");
         }else{
-            Categoria categoria = new Categoria(viewCadastrarCategoria.getNome(), viewCadastrarCategoria.getDescricao(), viewCadastrarCategoria.getSituacao());
+            AtividadeFactory categoriaFactory = new CategoriaFactory();
+            Categoria categoria = (Categoria) categoriaFactory.createAtividade(viewCadastrarCategoria.getNome(),"","", viewCadastrarCategoria.getDescricao(), viewCadastrarCategoria.getSituacao());
             CategoriaDAO categoriaDAO = new CategoriaDAO();
             categoriaDAO.gravar(categoria);
             viewCadastrarCategoria.limparCampos();

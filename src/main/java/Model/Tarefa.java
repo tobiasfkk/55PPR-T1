@@ -1,7 +1,5 @@
 package Model;
 
-import interfaces.AtividadeFactory;
-
 public class Tarefa extends Atividade {
     
     private static int contador = 1;
@@ -91,10 +89,11 @@ public class Tarefa extends Atividade {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
-    
 
+    
     @Override
-    public String toString() {
-        return numerotarefa + " - " + descricao + " - " + datahoracriacao + " - " + prioridade + " - " + status;
+    protected String formatInformacoesEspecificas() {
+        // informações específicas da Tarefa
+        return " - " + datahoracriacao + " - " + prioridade + " - " + status;
     }
 }

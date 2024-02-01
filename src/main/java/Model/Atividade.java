@@ -25,7 +25,21 @@ public abstract class Atividade {
         this.datahoracriacao  = dateFormat.format(date); 
     }
     
-    public abstract String toString();
+//    public abstract String toString();
+    
+    public final String toString() {
+        StringBuilder result = new StringBuilder();
+        result.append(formatInformacoesComuns()); // Método comum a todas as atividades
+        result.append(formatInformacoesEspecificas()); // Método específico a cada atividade
+        return result.toString();
+    }
+    
+    // Método comum a todas as atividades
+    private String formatInformacoesComuns() {
+        return " --> " + titulo + " - " + descricao;
+    }
+    
+    protected abstract String formatInformacoesEspecificas();
 
     public String getTitulo() {
         return titulo;
