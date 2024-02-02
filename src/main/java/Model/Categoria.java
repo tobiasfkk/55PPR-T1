@@ -1,5 +1,6 @@
 package Model;
 
+import State.CategoriaState;
 import interfaces.AtividadeFactory;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -13,6 +14,8 @@ public class Categoria extends Atividade{
     private String descricaocategoria; 
     private String datahoracriacao;
     private String status;
+    private CategoriaState categoriaState;
+    private boolean ativo = false;
                   
     public Categoria(String nomecategoria, String dataconclusao, String prioridade, String status, String descricaocategoria) {
         super(nomecategoria, dataconclusao, prioridade, status, descricaocategoria);
@@ -71,6 +74,22 @@ public class Categoria extends Atividade{
     @Override
     public String formatInformacoesEspecificas() {
         return " - " + numerocategoria;
+    }
+    
+    public void changeState(CategoriaState categoriaState) {
+        this.categoriaState = categoriaState;
+    }
+    
+    public boolean isAtivo() {
+        return ativo;
+    }
+    
+    public CategoriaState getState() {
+        return categoriaState;
+    }
+
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
     }
     
 }
