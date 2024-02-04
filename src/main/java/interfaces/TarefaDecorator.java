@@ -8,6 +8,6 @@ package interfaces;
  *
  * @author Joao
  */
-public interface ComponenteTarefa extends TarefaVisitor{
-    void operacao();
+public interface TarefaDecorator extends ComponenteTarefa{
+    public void metodoComum();
 }
