@@ -1,7 +1,7 @@
 package Model;
 
 import interfaces.AtividadeFactory;
-
+import interfaces.TarefaVisitor;
 interface ComponenteTarefa {
     void operacao();
 }
@@ -25,7 +25,12 @@ public class Tarefa extends Atividade implements ComponenteTarefa{
     
     @Override
     public void operacao() {
+        
         System.out.println(numerotarefa + " - " + descricao + " - " + datahoracriacao + " - " + prioridade + " - " + status);
+    }
+    
+    public void accept(TarefaVisitor visitor) {
+        visitor.visit(this);
     }
     
     public static int getContador() {

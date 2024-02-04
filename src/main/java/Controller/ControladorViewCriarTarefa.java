@@ -11,10 +11,12 @@ import Model.Logger;
 import Model.Status;
 import Model.Tarefa;
 import Model.TarefaFactory;
+import Model.ValidacaoDecorator;
 import Observado.Observado;
 import Observador.Observador;
 import View.ViewCriarTarefa;
 import interfaces.AtividadeFactory;
+import interfaces.TarefaDecorator;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -75,6 +77,9 @@ public class ControladorViewCriarTarefa extends Observado{
             log.exibirLogs();
             viewCadastrarTarefa.limparCampos();
             viewCadastrarTarefa.exibirMensagem("TAREFA CADASTRADA COM SUCESSO!");
+            tarefa.operacao();
+            TarefaDecorator tarefaComValidacao = new ValidacaoDecorator(tarefa);
+            tarefaComValidacao.operacao();
             fecharTela();
         }
     }
