@@ -1,6 +1,7 @@
 package DAO;
 
 import Model.Categoria;
+import State.CategoriaAtiva;
 import interfaces.CategoriaInterface;
 import java.util.HashSet;
 import java.util.Set;
@@ -17,6 +18,8 @@ public class CategoriaDAO implements CategoriaInterface{
     @Override
     public void gravar(Categoria categoria) {
         categorias.add(categoria);
+//        categoria.setAtivo(true);
+        categoria.changeState(new CategoriaAtiva(categoria));
     }
 
     @Override
@@ -48,4 +51,18 @@ public class CategoriaDAO implements CategoriaInterface{
              }
          }
     }
+    
+    public String ativar(Categoria categoria){
+        String mensagem = categoria.getState().ativa();
+        categoria.setAtivo(true);
+        return mensagem;
+    }
+    
+    
+    public String desativar(Categoria categoria){
+        String mensagem = categoria.getState().inativa();
+        categoria.setAtivo(false);
+        return mensagem;
+    }
+    
 }

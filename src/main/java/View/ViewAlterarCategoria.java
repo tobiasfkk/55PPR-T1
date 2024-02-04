@@ -26,6 +26,15 @@ public class ViewAlterarCategoria extends javax.swing.JFrame {
         BtnDeletar.addActionListener(acao);
     }
     
+    public void adicionarAcaoBotaoAtivar(ActionListener acao){
+        BtnAtivar.addActionListener(acao);
+    }
+    
+    public void adicionarAcaoBotaoDesativar(ActionListener acao){
+        BtnDesativar.addActionListener(acao);
+    }
+    
+    
     public void exibirMensagem(String msg) {
         JOptionPane.showMessageDialog(null, msg);
     }
@@ -48,7 +57,7 @@ public class ViewAlterarCategoria extends javax.swing.JFrame {
     }
     
     public String getCategoriaSituacao(){
-        return (String) CategoriaSituacao.getSelectedItem();
+        return "";//(String) CategoriaSituacao.getSelectedItem();
     }
     
     public void ComboCategoria(Categoria categoria){
@@ -64,16 +73,16 @@ public class ViewAlterarCategoria extends javax.swing.JFrame {
     }
     
     public void setCategoriaSituacao(String situacao){
-        CategoriaSituacao.setSelectedItem(situacao);
+       //CategoriaSituacao.setSelectedItem(situacao);
     }
     
     public void removerItemComboCategoria(Categoria categoria){
         ComboCategoria.removeItem((Categoria) categoria);
     }
         
-    public void CampoStatus(String status){
-        CategoriaSituacao.addItem(status);
-    }
+//    public void CampoStatus(String status){
+//        CategoriaSituacao.addItem(status);
+//    }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -89,7 +98,8 @@ public class ViewAlterarCategoria extends javax.swing.JFrame {
         BtnSalvarAlteracao = new javax.swing.JButton();
         BtnDeletar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        CategoriaSituacao = new javax.swing.JComboBox<>();
+        BtnAtivar = new javax.swing.JButton();
+        BtnDesativar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -115,7 +125,9 @@ public class ViewAlterarCategoria extends javax.swing.JFrame {
 
         jLabel5.setText("Situação");
 
-        CategoriaSituacao.setToolTipText("");
+        BtnAtivar.setText("Ativar");
+
+        BtnDesativar.setText("Desativar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -148,7 +160,11 @@ public class ViewAlterarCategoria extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(CategoriaDescricao)
-                            .addComponent(CategoriaSituacao, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(BtnAtivar)
+                                .addGap(32, 32, 32)
+                                .addComponent(BtnDesativar)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -171,7 +187,8 @@ public class ViewAlterarCategoria extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(CategoriaSituacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BtnAtivar)
+                    .addComponent(BtnDesativar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BtnSalvarAlteracao)
@@ -222,11 +239,12 @@ public class ViewAlterarCategoria extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnAtivar;
     private javax.swing.JButton BtnDeletar;
+    private javax.swing.JButton BtnDesativar;
     private javax.swing.JButton BtnSalvarAlteracao;
     private javax.swing.JTextField CategoriaDescricao;
     private javax.swing.JTextField CategoriaNome;
-    private javax.swing.JComboBox<String> CategoriaSituacao;
     private javax.swing.JComboBox<Categoria> ComboCategoria;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

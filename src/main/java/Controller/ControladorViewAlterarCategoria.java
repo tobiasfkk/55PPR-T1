@@ -17,10 +17,11 @@ public class ControladorViewAlterarCategoria {
     
     public ControladorViewAlterarCategoria() {
         carregarComboCategoria();
-        valoresCampoStatus();
+//        valoresCampoStatus();
         alterarCategoriaCommand = new SetVisibilityCommand(viewAlterarCategoria);
         alterarCategoriaCommand.execute();
         adicionarAcao();
+
     }
     
     public void fecharTela(){
@@ -49,7 +50,19 @@ public class ControladorViewAlterarCategoria {
             public void actionPerformed(ActionEvent e) {
                 ComboCategoria();
             }
-        });   
+        });
+        viewAlterarCategoria.adicionarAcaoBotaoAtivar(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Ativar();
+            }
+        });
+        viewAlterarCategoria.adicionarAcaoBotaoDesativar(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Desativar();
+            }
+        }); 
     }
     
     public void salvar() throws CampoVazioException{
@@ -86,11 +99,23 @@ public class ControladorViewAlterarCategoria {
         }
     }
     
-    public void valoresCampoStatus(){
-            
-        viewAlterarCategoria.CampoStatus("Ativo");
-        viewAlterarCategoria.CampoStatus("Inativo");
-
+//    public void valoresCampoStatus(){
+//            
+//        viewAlterarCategoria.CampoStatus("Ativo");
+//        viewAlterarCategoria.CampoStatus("Inativo");
+//
+//    }
+    
+    public void Ativar(){
+        Categoria SelectedItem = (Categoria) viewAlterarCategoria.getComboCategoria();
+        String mensagem = repositorioCategoria.ativar(SelectedItem);
+        viewAlterarCategoria.exibirMensagem(mensagem);
+    }
+    
+    public void Desativar(){
+        Categoria SelectedItem = (Categoria) viewAlterarCategoria.getComboCategoria();
+        String mensagem = repositorioCategoria.desativar(SelectedItem);
+        viewAlterarCategoria.exibirMensagem(mensagem);
     }
 
 }
