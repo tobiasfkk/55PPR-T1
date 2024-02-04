@@ -17,7 +17,7 @@ public class ControladorViewCadastrarCategoria {
     private Command cadastrarCategoriaCommand;
     
     public ControladorViewCadastrarCategoria() {
-        valoresCampoStatus();
+//        valoresCampoStatus();
         cadastrarCategoriaCommand = new SetVisibilityCommand(viewCadastrarCategoria);
         cadastrarCategoriaCommand.execute();
         adicionarAcao();
@@ -45,7 +45,7 @@ public class ControladorViewCadastrarCategoria {
             throw new CampoVazioException("NOME E CATEGORIA NÃO PODEM ESTAR VAZIOS!");
         }else{
             AtividadeFactory categoriaFactory = new CategoriaFactory();
-            Categoria categoria = (Categoria) categoriaFactory.createAtividade(viewCadastrarCategoria.getNome(),"","", viewCadastrarCategoria.getDescricao(), viewCadastrarCategoria.getSituacao());
+            Categoria categoria = (Categoria) categoriaFactory.createAtividade(viewCadastrarCategoria.getNome(),"","", viewCadastrarCategoria.getDescricao(), "Ativo");
             CategoriaDAO categoriaDAO = new CategoriaDAO();
             categoriaDAO.gravar(categoria);
             viewCadastrarCategoria.limparCampos();
@@ -54,11 +54,11 @@ public class ControladorViewCadastrarCategoria {
         }
     }
     
-    public void valoresCampoStatus(){
-            
-        viewCadastrarCategoria.CampoStatus("Ativo");
-        viewCadastrarCategoria.CampoStatus("Inativo");
-
-    }
+//    public void valoresCampoStatus(){
+//            
+//        viewCadastrarCategoria.CampoStatus("Ativo");
+//        viewCadastrarCategoria.CampoStatus("Inativo");
+//
+//    }
     
 }

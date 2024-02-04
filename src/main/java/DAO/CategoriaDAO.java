@@ -48,4 +48,18 @@ public class CategoriaDAO implements CategoriaInterface{
              }
          }
     }
+    
+    public String ativar(Categoria categoria){
+        categoria.getState().ativa();
+        categoria.setAtivo(true);
+        return "Categoria ativada!";
+    }
+    
+    
+    public String desativar(Categoria categoria){
+        categoria.getState().inativa();
+        categoria.setAtivo(false);
+        return "Categoria desativada!";
+    }
+    
 }

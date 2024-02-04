@@ -56,7 +56,12 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="CategoriaDescricao" max="32767" attributes="0"/>
-                          <Component id="CategoriaSituacao" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="BtnAtivar" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                              <Component id="BtnDesativar" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
               </Group>
@@ -87,7 +92,8 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="CategoriaSituacao" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="BtnAtivar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="BtnDesativar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="28" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -155,16 +161,15 @@
         <Property name="text" type="java.lang.String" value="Situa&#xe7;&#xe3;o"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="CategoriaSituacao">
+    <Component class="javax.swing.JButton" name="BtnAtivar">
       <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="0"/>
-        </Property>
-        <Property name="toolTipText" type="java.lang.String" value=""/>
+        <Property name="text" type="java.lang.String" value="Ativar"/>
       </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JButton" name="BtnDesativar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Desativar"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
