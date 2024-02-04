@@ -57,7 +57,7 @@ public class ControladorViewAlterarCategoria {
                 Ativar();
             }
         });
-        viewAlterarCategoria.adicionarAcaoBotaoAtivar(new ActionListener() {
+        viewAlterarCategoria.adicionarAcaoBotaoDesativar(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Desativar();

@@ -4,7 +4,7 @@ import Model.Categoria;
 
 public class CategoriaAtiva extends CategoriaState {
 
-    CategoriaAtiva(Categoria categoria) {
+    public CategoriaAtiva(Categoria categoria) {
         super(categoria);
         categoria.setAtivo(true);
     }
