@@ -30,26 +30,26 @@ O sistema é constituído pelo código refatorado do trabalho final da disciplin
     - Decorator
     - Composite
 
-### MVC
+## MVC
 
 O sistema é todo estruturado no padrão MVC, as principais classes do sistema foram separadas em pacotes Model, View e Controller. Algumas funcionalidades específicas foram desenvolvidas fora do MVC por uma questão de acessibilidade, como a inserção de imagem em uma tarefa, por exemplo, porém grande parte da estrutura do sistema segue este padrão. A utilização do MVC faz com que cada função fique bem definida, as classes bem separadas e melhora muito a manutenção e correção de erros.
 
-### Observer
+## Observer
 
 O padrão Observer foi adicionado para gerenciar uma lista de tarefas, onde, sempre que o usuário adicionar uma nova tarefa, uma janela onde estão amostradas todas as tarefas é atualizada. Esta janela é atualizada cada vez que uma tarefa é adicionada, alterada ou excluída. O observado é a classe ControladorViewCriarTarefa.java que estende a classe abstrata Observado.java e o observador é a classe ControladorViewListaTarefa.java que implementa a interface Observador.java. O padrão Observer se faz útil para atualizar imediatamente a janela que lista as tarefas (ViewListaTarefa.java), facilitando a usabilidade para o usuário.
 
-### Singleton
+## Singleton
 
 O padrão Singleton é utilizado na criação de tarefas (ControladorViewCriarTarefa.java), durante a criação de uma nova tarefa uma instância única do Logger é adquirida e registra toda criação de tarefas em uma lista. Este padrão garante que seja criado apenas uma instância de Log e registrado todas as criações de tarefas nele. 
 Este Logger fica registrado e é impresso no terminal toda vez que uma nova tarefa é adicionada.
 
-### Template Method
+## Template Method
 
 O padrão Template Method é utilizado na classe Tarefa.java que estende a classe abstrata Atividade.java. Na classe abstrata Atividade.java são definidos alguns métodos que são utilizados na classe Tarefa.java. Este padrão foi implementado permitindo que, futuramente, outras classes estendam a classe abstrata Atividade.java, porém até o momento foi utilizado apenas para a classe Tarefa.java. A classe Tarefa.java utiliza alguns métodos idênticos a classe abstrata Atividade.java e também faz devidas alterações em outros.
 Exemplo: na classe abstrata Atividade.java, o método toString() é declarado como abstrato, exigindo que as subclasses forneçam uma implementação específica desse método.
 Utilizar o Template Method faz com que linhas de código sejam economizadas, considerando que é possível compartilhar uma lógica com várias partes do sistema, deixando o sistema mais fluido e leve, facilitando também a manutenção. No caso do sistema em questão, é utilizado apenas na classe Tarefa.java, porém futuramente poderá ser estendido para outras classes.
 
-### Factory Method
+## Factory Method
 
 O padrão Factory Method foi implementado nas classes TarefaFactory.java e CategoriaFactory.java, que implementam a interface AtividadeFactory.java. Desta forma, permite que as subclasses alterem o tipo do objeto que será criado, porém ambas implementam a interface AtividadeFactory.java. Desta forma serão criadas atividades, sendo elas tarefas ou categorias.
 Na classe ControladorViewCriarTarefa.java, no método salvar(), é possível verificar a criação de uma atividade do tipo tarefa. Seguindo a seguinte lógica:
@@ -58,7 +58,7 @@ Na classe ControladorViewCriarTarefa.java, no método salvar(), é possível ver
     Tarefa tarefa = (Tarefa) tarefaFactory.createAtividade(parametros);
 Desta forma será criada uma atividade do tipo tarefa, sendo um padrão muito útil para futuramente, se necessário, criar vários tipos de atividades. 
     
-### Abstract Factory
+## Abstract Factory
 
 O padrão Abstract Factory foi implementado para servir de suporte para exportação de relatórios em diferentes formatos. O padrão de criação fornece uma interface para criar famílias de objetos relacionados sem especificar as classes concretas, tendo diferentes formatos de relatórios. Cada formato de relatório possui suas próprias classes concretas para representar elementos específicos do relatório, como cabeçalho, corpo e rodapé. Foi definida a fábrica abstrata que é a interface RelatorioFactory.java que declara os métodos para criar cada parte do relatório:
     
