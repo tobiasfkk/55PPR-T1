@@ -66,7 +66,7 @@ O padrão Abstract Factory foi implementado para servir de suporte para exporta�
     criarCorpo();
     criarRodape();
 
-A partir disso é possível criar as fábricas concretas que são PDFRelatorioFactory.java e ExcelRelatorioFactory.java, ambas implementando RelatorioFactory.java sobrescrevendo cada método de forma específica. Também foram criadas interfaces Cabecalho.java, Corpo.java e Rodape.java, cada qual sendo implementada por uma classe para o formato PDF e outra para Excel. Desta forma é criada uma fábrica para cada formato de exportação, porém o solicitador não saberá que existem duas fábricas diferentes para cada formato, apenas solicitará uma exportação no formato desejado e será atendido.
+A partir disso é possível criar as fábricas concretas que são `PDFRelatorioFactory.java` e `ExcelRelatorioFactory.java`, ambas implementando `RelatorioFactory.java` sobrescrevendo cada método de forma específica. Também foram criadas interfaces `Cabecalho.java`, `Corpo.java` e `Rodape.java`, cada qual sendo implementada por uma classe para o formato PDF e outra para Excel. Desta forma é criada uma fábrica para cada formato de exportação, porém o solicitador não saberá que existem duas fábricas diferentes para cada formato, apenas solicitará uma exportação no formato desejado e será atendido.
 A exportação de arquivos PDF e Excel fica armazenada no caminho:
 
     ...\src\main\java\arquivos\nome
