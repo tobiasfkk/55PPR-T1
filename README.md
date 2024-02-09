@@ -2,20 +2,19 @@
 
 O sistema é constituído pelo código refatorado do trabalho final da disciplina Programação 2, do terceiro semestre do curso de Engenharia de Software da UDESC - Universidade do Estado de Santa Catarina. Se resume em sistema de agenda onde o usuário, ao acessar o sistema, consegue fazer o gerenciamento de tarefas, a partir das tarefas nele adicionadas. É necessário manter categorias, sendo estas utilizadas para criação e manutenção das tarefas. A partir das categorias adicionadas, é possível adicionar tarefas, utilizando nelas, as categorias adicionadas anteriormente. Não é possível criar uma tarefa sem antes possuir uma categoria criada. O sistema é bem intuitivo e com mensagens de erro e advertência bem explicativas para maior facilidade e compreensão do usuário. O sistema não armazena os dados inseridos pelo usuário em um banco de dados, apenas guarda em memória local as informações durante a execução da aplicação, perdendo todos os dados inseridos após fechar a aplicação.
 
-
-Trabalho 1 da disciplina de Padrões de Projeto disponível no link: 
+**Trabalho 1 da disciplina de Padrões de Projeto disponível no link:** 
 
     https://github.com/tobiasfkk/55PPR-T1
 
-Refatoração do trabalho da disciplina de Programação 2 disponível no link:
+**Refatoração do trabalho da disciplina de Programação 2 disponível no link:**
     
     https://github.com/tobiasfkk/LembretesMVC
 
-Para rodar a aplicação, basta buildar a classe APP.java, caminho: 
+**Para rodar a aplicação, basta buildar a classe APP.java, caminho:**
 
     ...55PPR-T1\src\main\java\App\APP.java.
 
-Projeto Java com Java Swing.
+**Projeto Java com Java Swing.**
 
 # Padrões implementados
 
