@@ -36,23 +36,23 @@ O sistema é todo estruturado no padrão MVC, as principais classes do sistema f
 
 ## Observer
 
-O padrão Observer foi adicionado para gerenciar uma lista de tarefas, onde, sempre que o usuário adicionar uma nova tarefa, uma janela onde estão amostradas todas as tarefas é atualizada. Esta janela é atualizada cada vez que uma tarefa é adicionada, alterada ou excluída. O observado é a classe ControladorViewCriarTarefa.java que estende a classe abstrata Observado.java e o observador é a classe ControladorViewListaTarefa.java que implementa a interface Observador.java. O padrão Observer se faz útil para atualizar imediatamente a janela que lista as tarefas (ViewListaTarefa.java), facilitando a usabilidade para o usuário.
+O padrão Observer foi adicionado para gerenciar uma lista de tarefas, onde, sempre que o usuário adicionar uma nova tarefa, uma janela onde estão amostradas todas as tarefas é atualizada. Esta janela é atualizada cada vez que uma tarefa é adicionada, alterada ou excluída. O observado é a classe `ControladorViewCriarTarefa.java` que estende a classe abstrata `Observado.java` e o observador é a classe `ControladorViewListaTarefa.java` que implementa a interface `Observador.java`. O padrão Observer se faz útil para atualizar imediatamente a janela que lista as tarefas `ViewListaTarefa.java`, facilitando a usabilidade para o usuário.
 
 ## Singleton
 
-O padrão Singleton é utilizado na criação de tarefas (ControladorViewCriarTarefa.java), durante a criação de uma nova tarefa uma instância única do Logger é adquirida e registra toda criação de tarefas em uma lista. Este padrão garante que seja criado apenas uma instância de Log e registrado todas as criações de tarefas nele. 
+O padrão Singleton é utilizado na criação de tarefas `ControladorViewCriarTarefa.java`, durante a criação de uma nova tarefa uma instância única do Logger é adquirida e registra toda criação de tarefas em uma lista. Este padrão garante que seja criado apenas uma instância de Log e registrado todas as criações de tarefas nele. 
 Este Logger fica registrado e é impresso no terminal toda vez que uma nova tarefa é adicionada.
 
 ## Template Method
 
-O padrão Template Method é utilizado na classe Tarefa.java que estende a classe abstrata Atividade.java. Na classe abstrata Atividade.java são definidos alguns métodos que são utilizados na classe Tarefa.java. Este padrão foi implementado permitindo que, futuramente, outras classes estendam a classe abstrata Atividade.java, porém até o momento foi utilizado apenas para a classe Tarefa.java. A classe Tarefa.java utiliza alguns métodos idênticos a classe abstrata Atividade.java e também faz devidas alterações em outros.
-Exemplo: na classe abstrata Atividade.java, o método toString() é declarado como abstrato, exigindo que as subclasses forneçam uma implementação específica desse método.
-Utilizar o Template Method faz com que linhas de código sejam economizadas, considerando que é possível compartilhar uma lógica com várias partes do sistema, deixando o sistema mais fluido e leve, facilitando também a manutenção. No caso do sistema em questão, é utilizado apenas na classe Tarefa.java, porém futuramente poderá ser estendido para outras classes.
+O padrão Template Method é utilizado na classe `Tarefa.java` que estende a classe abstrata `Atividade.java`. Na classe abstrata `Atividade.java` são definidos alguns métodos que são utilizados na classe `Tarefa.java`. Este padrão foi implementado permitindo que, futuramente, outras classes estendam a classe abstrata `Atividade.java`, porém até o momento foi utilizado apenas para a classe `Tarefa.java`. A classe Tarefa.java utiliza alguns métodos idênticos a classe abstrata `Atividade.java` e também faz devidas alterações em outros.
+Exemplo: na classe abstrata `Atividade.java`, o método `toString()` é declarado como abstrato, exigindo que as subclasses forneçam uma implementação específica desse método.
+Utilizar o Template Method faz com que linhas de código sejam economizadas, considerando que é possível compartilhar uma lógica com várias partes do sistema, deixando o sistema mais fluido e leve, facilitando também a manutenção. No caso do sistema em questão, é utilizado apenas na classe `Tarefa.java`, porém futuramente poderá ser estendido para outras classes.
 
 ## Factory Method
 
-O padrão Factory Method foi implementado nas classes TarefaFactory.java e CategoriaFactory.java, que implementam a interface AtividadeFactory.java. Desta forma, permite que as subclasses alterem o tipo do objeto que será criado, porém ambas implementam a interface AtividadeFactory.java. Desta forma serão criadas atividades, sendo elas tarefas ou categorias.
-Na classe ControladorViewCriarTarefa.java, no método salvar(), é possível verificar a criação de uma atividade do tipo tarefa. Seguindo a seguinte lógica:
+O padrão Factory Method foi implementado nas classes `TarefaFactory.java` e `CategoriaFactory.java`, que implementam a interface `AtividadeFactory.java`. Desta forma, permite que as subclasses alterem o tipo do objeto que será criado, porém ambas implementam a interface `AtividadeFactory.java`. Desta forma serão criadas atividades, sendo elas tarefas ou categorias.
+Na classe `ControladorViewCriarTarefa.java`, no método `salvar()`, é possível verificar a criação de uma atividade do tipo tarefa. Seguindo a seguinte lógica:
 
     AtividadeFactory tarefaFactory = new TarefaFactory();
     Tarefa tarefa = (Tarefa) tarefaFactory.createAtividade(parametros);
@@ -60,7 +60,7 @@ Desta forma será criada uma atividade do tipo tarefa, sendo um padrão muito ú
     
 ## Abstract Factory
 
-O padrão Abstract Factory foi implementado para servir de suporte para exportação de relatórios em diferentes formatos. O padrão de criação fornece uma interface para criar famílias de objetos relacionados sem especificar as classes concretas, tendo diferentes formatos de relatórios. Cada formato de relatório possui suas próprias classes concretas para representar elementos específicos do relatório, como cabeçalho, corpo e rodapé. Foi definida a fábrica abstrata que é a interface RelatorioFactory.java que declara os métodos para criar cada parte do relatório:
+O padrão Abstract Factory foi implementado para servir de suporte para exportação de relatórios em diferentes formatos. O padrão de criação fornece uma interface para criar famílias de objetos relacionados sem especificar as classes concretas, tendo diferentes formatos de relatórios. Cada formato de relatório possui suas próprias classes concretas para representar elementos específicos do relatório, como cabeçalho, corpo e rodapé. Foi definida a fábrica abstrata que é a interface `RelatorioFactory.java` que declara os métodos para criar cada parte do relatório:
     
     criarCabecalho(); 
     criarCorpo();
@@ -73,7 +73,7 @@ A exportação de arquivos PDF e Excel fica armazenada no caminho:
 
 ## Command
 
-O padrão Command foi utilizado para padronizar a abertura das janelas. Anteriormente se fazia necessário ter um comando do tipo setVisible(true) no corpo de cada View (tela). Com a implementação do padrão Command foram economizadas linhas de código, como as linhas 37, 40, 41 e 42 da classe  ControladorViewCriarTarefa.java por exemplo, que fazia a abertura da tela a partir do metodo exibir() da classe ViewCriarTarefa.java nas linhas 23, 24 e 25, que puderam ser comentadas pois a lógica já está feita na classe SetVisibilityCommand.java e pode ser utilizada em qualquer tela. Foi criada a interface Command.java possuindo apenas o comando execute() e a classe SetVisibilityCommand.java que faz a lógica de visibilidade. Com isso se faz necessário apenas instanciar a View (tela) e chamar o comando execute() que a janela será aberta. Desta forma é possível abrir qualquer tela do sistema, apenas com o comando execute(), economizando várias linhas de código que seriam necessárias no corpo de cada View.
+O padrão Command foi utilizado para padronizar a abertura das janelas. Anteriormente se fazia necessário ter um comando do tipo setVisible(true) no corpo de cada View (tela). Com a implementação do padrão Command foram economizadas linhas de código, como as linhas 37, 40, 41 e 42 da classe  `ControladorViewCriarTarefa.java` por exemplo, que fazia a abertura da tela a partir do metodo exibir() da classe `ViewCriarTarefa.java` nas linhas 23, 24 e 25, que puderam ser comentadas pois a lógica já está feita na classe `SetVisibilityCommand.java` e pode ser utilizada em qualquer tela. Foi criada a interface `Command.java` possuindo apenas o comando `execute()` e a classe `SetVisibilityCommand.java` que faz a lógica de visibilidade. Com isso se faz necessário apenas instanciar a view (tela) e chamar o comando `execute()` que a janela será aberta. Desta forma é possível abrir qualquer tela do sistema, apenas com o comando `execute()`, economizando várias linhas de código que seriam necessárias no corpo de cada View.
 O padrão Command foi utilizado para a abertura das telas:
 Cadastro de categoria;
 Visualizar categoria;
@@ -83,16 +83,16 @@ A lógica do padrão pode ser utilizada em outras telas e também para o fechame
 
 ## State
 
-O padrão state foi utilizado para setar uma categoria como ativa ou inativa. Faz uso das classes CategoriaAtiva.java e CategoriaInativa.java que estendem a classe abstrata CategoriaState.java. A partir dessas classes se faz possível alterar o estado do objeto do tipo Categoria.java.
+O padrão state foi utilizado para setar uma categoria como ativa ou inativa. Faz uso das classes `CategoriaAtiva.java` e `CategoriaInativa.java` que estendem a classe abstrata `CategoriaState.java`. A partir dessas classes se faz possível alterar o estado do objeto do tipo `Categoria.java`.
 
 ## Visitor
 
-O padrão Visitor foi implementado para permitir a execução de operações específicas sobre instâncias da classe Tarefa sem a necessidade de modificar diretamente essa classe. A criação da interface TarefaVisitor com o método visit e a adaptação da classe Tarefa para implementar ComponenteTarefa, que estende TarefaVisitor, são passos fundamentais para habilitar a capacidade de aceitar visitors e executar operações de forma flexível.
+O padrão Visitor foi implementado para permitir a execução de operações específicas sobre instâncias da classe `Tarefa.java` sem a necessidade de modificar diretamente essa classe. A criação da interface `TarefaVisitor.java` com o método visit e a adaptação da classe `Tarefa.java` para implementar `ComponenteTarefa`, que estende `TarefaVisitor`, são passos fundamentais para habilitar a capacidade de aceitar visitors e executar operações de forma flexível.
 
 ## Decorator
 
-O padrão Decorator é utilizado para estender o comportamento de objetos de forma flexível e modular. A classe `ValidacaoDecorator` atua como um decorador que adiciona funcionalidades de validação a uma tarefa existente, representada pela interface `ComponenteTarefa`. Ao utilizar o método `operacao()`, o decorador executa a operação original da tarefa e, em seguida, realiza uma validação específica. Se a validação for bem-sucedida, uma mensagem de sucesso é exibida; caso contrário, uma mensagem de falha é apresentada. Esse padrão permite a inclusão de novas características nas tarefas sem modificar suas classes diretamente, promovendo a extensibilidade e reusabilidade do código.
+O padrão Decorator é utilizado para estender o comportamento de objetos de forma flexível e modular. A classe `ValidacaoDecorator.java` atua como um decorador que adiciona funcionalidades de validação a uma tarefa existente, representada pela interface `ComponenteTarefa.java`. Ao utilizar o método `operacao()`, o decorador executa a operação original da tarefa e, em seguida, realiza uma validação específica. Se a validação for bem-sucedida, uma mensagem de sucesso é exibida; caso contrário, uma mensagem de falha é apresentada. Esse padrão permite a inclusão de novas características nas tarefas sem modificar suas classes diretamente, promovendo a extensibilidade e reusabilidade do código.
 
 ## Composite
 
-O padrão Composite foi implementado como o gerenciamento de atividades para criar uma hierarquia de objetos que podem ser tratados de maneira uniforme. A classe Tarefa implementa a interface ComponenteTarefa, permitindo que objetos individuais e composições de tarefas sejam manipulados de forma consistente.
+O padrão Composite foi implementado como o gerenciamento de atividades para criar uma hierarquia de objetos que podem ser tratados de maneira uniforme. A classe Tarefa implementa a interface `ComponenteTarefa`, permitindo que objetos individuais e composições de tarefas sejam manipulados de forma consistente.
